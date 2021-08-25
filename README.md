@@ -1,4 +1,4 @@
-# Score-Keeper
+# Score-Knight
 
 **Created By:** Andreas Campan
 Free to use - Open source
