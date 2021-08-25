@@ -4,12 +4,16 @@
 Free to use - Open source
 
 **Purpose:** 
-This app was created to help keep score for game nights. The motivation and inspiration behind this app was my pregnant wife who told me “I hate using the notes app to keep score”
+This app is an adaptation from my original ["scorekeeper"](https://github.com/AndreasCampan/Score-Keeper) which was a website app designed to help keep score for game nights. The original app was built using html css and vanilla js which worked great but it lacked many features such as creating a home icon for mobile devices or saving data to local storage incase of accidental page refresh. 
+
+I decided to rebuild the app from ground up using React and potentially include the full MERN stack to allow users to save game sessions to a database. 
+
+Score-Knight will also have an array of games to select from which will customize the player's cards accordingly generating only useful content.
+
+The motivation and inspiration behind this app was my pregnant wife who told me “I hate using the notes app to keep score”
 
 **Instructions:**
-- Type in the name of a player and press enter or click the add button. *(Max 10 characters long but unlimited players can be added)*
-- Each name will have a card containing a score value, dealer button, starter button, delete button and an input for the score
-- Once the score is typed in the score input box, press or click enter to add it to the player's score (see below for details)
+
 
 **Score Input**
 
