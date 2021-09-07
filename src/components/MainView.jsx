@@ -1,6 +1,8 @@
 import React from 'react';
 import './mainview.css';
 import NavView from './navigation/NavView';
+import BasicScoreView from './basicscore/BasicscoreView'
+import DopplekoffView from './dopplekoff/DopplekoffView'
 
 class MainView extends React.Component {
   constructor(props) {
@@ -26,10 +28,10 @@ class MainView extends React.Component {
     let gameScreen;
 
     if (gameType === 'basic') {
-      console.log('1');
-      gameScreen = <div><p>Hello there</p></div>
+      gameScreen = <BasicScoreView />
+    } else if (gameType === 'dopplekoff') {
+      gameScreen = <DopplekoffView />
     } else {
-      console.log('2');
       gameScreen = <div><p>Goodbye</p></div>
     }
 

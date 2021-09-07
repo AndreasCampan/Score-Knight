@@ -1,13 +1,15 @@
 import React from 'react';
-import './navview.css'
+import './basic.css'
 
-class NavView extends React.Component {
+class BasicScoreView extends React.Component {
 
   render(){
     return(
-      <div className="nav-container">Hello</div>
+      <div className="basic-container">
+        <h1>Basic Score Keeper</h1>
+      </div>
     )
   }
 }
 
-export default NavView;
+export default BasicScoreView;
