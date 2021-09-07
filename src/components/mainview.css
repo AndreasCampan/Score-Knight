@@ -1,5 +1,10 @@
 .app-container {
-  width: 600px;
+  width: 800px;
   height: 500px;
   background-color: white;
+  border-radius: 2%;
+  box-shadow: 3px 3px 3px 3px black;
+  margin-top: 50px;
+  text-align: center;
 }
+
