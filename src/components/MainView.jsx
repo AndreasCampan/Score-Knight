@@ -12,16 +12,17 @@ class MainView extends React.Component {
       gameType: 'basic',
       players: [],
       gameData: [],
-      duplicateName: false
+      duplicateName: 0
     };
   }
 
   addPlayer = (name) => {
     let players = this.state.players
     if (name === '') {
+      this.setState({ duplicateName: 2})
       return
     } else if (players.some(players => players.name === name)) {
-      this.setState({ duplicateName: true});
+      this.setState({ duplicateName: 1});
       return
     } else {
       if (this.state.players.length === 0) {
@@ -31,12 +32,12 @@ class MainView extends React.Component {
         namesArray.push({id: name, name: name})
         this.setState({players: namesArray})
       }
-      // this.setState({ duplicateName: false});
+      this.setState({ duplicateName: 0});
     } 
   }
 
   changeDuplicate = () =>  {
-    this.setState({duplicateName: false})
+    this.setState({duplicateName: 0})
   }
 
   handleSelect = (e) => {
@@ -61,14 +62,16 @@ class MainView extends React.Component {
       <>
         <NavView />
         <div className="app-container">
-          <h2>Select a Game:</h2>
-          <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
-            <option value="basic">Basic Score</option>
-            <option value="dopplekoff">Dopplekoff</option>
-            <option value="president">President</option>
-            <option value="rummyo">Rummy-O</option>
-            <option value="wizard">Wizard</option>
-          </select>
+          <div className="gameselect-box">
+            <h2 className="title-1">Select a Game:</h2>
+            <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
+              <option value="basic">Basic Score</option>
+              <option value="dopplekoff">Dopplekoff</option>
+              <option value="president">President</option>
+              <option value="rummyo">Rummy-O</option>
+              <option value="wizard">Wizard</option>
+            </select>
+          </div>
           <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
           {gameScreen}
         </div>

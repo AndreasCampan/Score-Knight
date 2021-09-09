@@ -1,10 +1,28 @@
 .app-container {
-  width: 800px;
-  height: 500px;
-  background-color: white;
-  border-radius: 2%;
-  box-shadow: 3px 3px 3px 3px black;
-  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
   text-align: center;
+  width: 800px;
+  min-height: 500px;
+  margin-top: 10px;
+  padding: 20px;
 }
 
+.gameselect-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-1 {
+  margin-right: 10px;
+}
+
+#games {
+  padding: 5px;
+  min-width: 130px;
+  text-align: center;
+}
