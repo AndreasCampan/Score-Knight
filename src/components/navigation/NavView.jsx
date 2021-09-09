@@ -5,7 +5,9 @@ class NavView extends React.Component {
 
   render(){
     return(
-      <div className="nav-container">Hello</div>
+      <div className="nav-container">
+        <h1>Score Knight</h1>
+      </div>
     )
   }
 }

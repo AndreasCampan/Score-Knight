@@ -2,11 +2,20 @@ import React from 'react';
 import './basic.css'
 
 class BasicScoreView extends React.Component {
+ 
+  render() {
+    let playersArray = this.props.players
+    let drawPlayers = playersArray.map((data) => {
+      return (
+      <li key={data.id}>{data.name}</li>
+      )
+    });
 
-  render(){
     return(
       <div className="basic-container">
-        <h1>Basic Score Keeper</h1>
+        <ul>
+          { drawPlayers }
+        </ul>
       </div>
     )
   }
