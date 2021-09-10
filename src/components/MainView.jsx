@@ -11,7 +11,6 @@ class MainView extends React.Component {
     this.state = {
       gameType: 'basic',
       players: [],
-      gameData: [],
       duplicateName: 0
     };
   }
@@ -26,14 +25,25 @@ class MainView extends React.Component {
       return
     } else {
       if (this.state.players.length === 0) {
-        this.setState({players: [{id: name, name: name}]});
+        this.setState({players: [{id: name, name: name, score: 0}]});
       } else {
         let namesArray = this.state.players
-        namesArray.push({id: name, name: name})
+        namesArray.push({id: name, name: name, score: 0})
         this.setState({players: namesArray})
       }
       this.setState({ duplicateName: 0});
     } 
+  }
+
+  updateScore = (name, value) => {
+    const elementsIndex = this.state.players.findIndex(el => el.id === name);
+    let playersCopy = [...this.state.players];
+    let playerOldScore = this.state.players[elementsIndex].score
+
+    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], score: value + playerOldScore }
+    
+    this.setState({ players: playersCopy})
+
   }
 
   changeDuplicate = () =>  {
@@ -51,7 +61,7 @@ class MainView extends React.Component {
     let gameScreen;
 
     if (gameType === 'basic') {
-      gameScreen = <BasicScoreView players={this.state.players}  />
+      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} />
     } else if (gameType === 'dopplekoff') {
       gameScreen = <DoppelkopfView />
     } else {

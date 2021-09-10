@@ -2,32 +2,36 @@ import React from 'react';
 import './basic.css'
 
 class BasicScoreView extends React.Component {
- 
+
   render() {
-    let playersArray = this.props.players
+    const playersArray = this.props.players
+    let playersArrayCopy = [...playersArray]
     let drawPlayers = playersArray.map((data) => {
       return (
       <li className="player-card" key={data.id}>
         {data.name}
-        <span className="player-score">0</span>
+        <span className="player-score"> { data.score} </span>
         <div className="bttn-container">
-          <button className="basic-bttn-minus up">-5</button>
-          <button className="basic-bttn-minus down">-1</button>
-          <button className="basic-bttn-plus down">+1</button>
-          <button className="basic-bttn-plus up">+5</button>
+          <button className="basic-bttn-minus up" onClick={()=>{this.props.updateScore(data.name, -5)}}>-5</button>
+          <button className="basic-bttn-minus down" onClick={()=>{this.props.updateScore(data.name, -1)}}>-1</button>
+          <button className="basic-bttn-plus down" onClick={()=>{this.props.updateScore(data.name, 1)}}>+1</button>
+          <button className="basic-bttn-plus up" onClick={()=>{this.props.updateScore(data.name, 5)}}>+5</button>
         </div>
       </li>
       )
     });
+    
+    let sortedArray = playersArrayCopy.sort((a, b) => {
+      return b.score - a.score;
+    });
 
-    let scoreTable = playersArray.map((data) => {
+    let scoreTable = sortedArray.map((data) => {
       return (
       <li className="st-player" key={data.id}>
-        {data.name}
-        
+        {data.name} <span className="st-score">{ data.score }</span>
       </li>
       )
-    });
+    })
 
     return(
       <div className="basic-container">

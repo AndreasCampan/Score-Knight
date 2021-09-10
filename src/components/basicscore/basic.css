@@ -39,6 +39,14 @@
   font-size: 1.2em;
 }
 
+.st-score {
+  float: right;
+  margin-left: 5px;
+  color: rgb(16, 133, 12);
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
 .player-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
