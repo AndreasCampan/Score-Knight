@@ -16,6 +16,7 @@
 .add-players-title {
   margin: 0;
 }
+
 #nameinput {
   padding: 5px;
   margin: 0 10px;
@@ -46,3 +47,27 @@
   color: white;
 }
 
+
+@media all and (max-width: 600px) {
+  .add-players-title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .input-inner-box {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .name-sub {
+    margin: 10px 0;
+  }
+}

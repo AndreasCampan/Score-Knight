@@ -37,8 +37,8 @@ class NameInputView extends React.Component {
     return(
       <div className="nameInput-container">
         <div className="input-inner-box">
-          <h2 className="add-players-title">Add Players:</h2>
-          <form name="Score" onSubmit={this.handleSubmit}>
+          <h2 className="add-players-title">Add a Player:</h2>
+          <form name="Score" onSubmit={this.handleSubmit} className="input-form">
             <input type="text" onChange={this.onInput} value={this.state.nameInput} id="nameinput" placeholder="Type a Name..." />
             <button className="name-sub" type='submit'>Submit</button>
           </form>

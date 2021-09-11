@@ -9,7 +9,7 @@ class BasicScoreView extends React.Component {
     let drawPlayers = playersArray.map((data) => {
       return (
       <li className="player-card" key={data.id}>
-        {data.name}
+        <span className="player-name">{data.name}</span>
         <span className="player-score"> { data.score} </span>
         <div className="bttn-container">
           <button className="basic-bttn-minus up" onClick={()=>{this.props.updateScore(data.name, -5)}}>-5</button>
