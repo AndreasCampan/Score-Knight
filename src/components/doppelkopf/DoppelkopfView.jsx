@@ -7,6 +7,7 @@ class DoppelkopfView extends React.Component {
     return(
       <div className="basic-container">
         <h1>Doppelkopf</h1>
+        <p>Coming Soon!</p>
       </div>
     )
   }

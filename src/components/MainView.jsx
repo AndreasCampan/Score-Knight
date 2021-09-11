@@ -65,7 +65,7 @@ class MainView extends React.Component {
     } else if (gameType === 'dopplekoff') {
       gameScreen = <DoppelkopfView />
     } else {
-      gameScreen = <div><p>Goodbye</p></div>
+      gameScreen = <div><p>Coming Soon!!</p></div>
     }
 
     return (
