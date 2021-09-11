@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/AndreasCampan/Score-Knight/static/css/main.e45f3b83.chunk.css",
-    "main.js": "/AndreasCampan/Score-Knight/static/js/main.c7cada44.chunk.js",
-    "main.js.map": "/AndreasCampan/Score-Knight/static/js/main.c7cada44.chunk.js.map",
-    "runtime-main.js": "/AndreasCampan/Score-Knight/static/js/runtime-main.ccfe4cc9.js",
-    "runtime-main.js.map": "/AndreasCampan/Score-Knight/static/js/runtime-main.ccfe4cc9.js.map",
-    "static/js/2.fba548d8.chunk.js": "/AndreasCampan/Score-Knight/static/js/2.fba548d8.chunk.js",
-    "static/js/2.fba548d8.chunk.js.map": "/AndreasCampan/Score-Knight/static/js/2.fba548d8.chunk.js.map",
-    "static/js/3.bb47f88a.chunk.js": "/AndreasCampan/Score-Knight/static/js/3.bb47f88a.chunk.js",
-    "static/js/3.bb47f88a.chunk.js.map": "/AndreasCampan/Score-Knight/static/js/3.bb47f88a.chunk.js.map",
-    "index.html": "/AndreasCampan/Score-Knight/index.html",
-    "service-worker.js": "/AndreasCampan/Score-Knight/service-worker.js",
-    "service-worker.js.map": "/AndreasCampan/Score-Knight/service-worker.js.map",
-    "static/css/main.e45f3b83.chunk.css.map": "/AndreasCampan/Score-Knight/static/css/main.e45f3b83.chunk.css.map",
-    "static/js/2.fba548d8.chunk.js.LICENSE.txt": "/AndreasCampan/Score-Knight/static/js/2.fba548d8.chunk.js.LICENSE.txt"
+    "main.css": "/Score-Knight/static/css/main.e45f3b83.chunk.css",
+    "main.js": "/Score-Knight/static/js/main.5ec0b3a7.chunk.js",
+    "main.js.map": "/Score-Knight/static/js/main.5ec0b3a7.chunk.js.map",
+    "runtime-main.js": "/Score-Knight/static/js/runtime-main.b7ee5dbf.js",
+    "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.b7ee5dbf.js.map",
+    "static/js/2.fba548d8.chunk.js": "/Score-Knight/static/js/2.fba548d8.chunk.js",
+    "static/js/2.fba548d8.chunk.js.map": "/Score-Knight/static/js/2.fba548d8.chunk.js.map",
+    "static/js/3.bb47f88a.chunk.js": "/Score-Knight/static/js/3.bb47f88a.chunk.js",
+    "static/js/3.bb47f88a.chunk.js.map": "/Score-Knight/static/js/3.bb47f88a.chunk.js.map",
+    "index.html": "/Score-Knight/index.html",
+    "service-worker.js": "/Score-Knight/service-worker.js",
+    "service-worker.js.map": "/Score-Knight/service-worker.js.map",
+    "static/css/main.e45f3b83.chunk.css.map": "/Score-Knight/static/css/main.e45f3b83.chunk.css.map",
+    "static/js/2.fba548d8.chunk.js.LICENSE.txt": "/Score-Knight/static/js/2.fba548d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ccfe4cc9.js",
+    "static/js/runtime-main.b7ee5dbf.js",
     "static/js/2.fba548d8.chunk.js",
     "static/css/main.e45f3b83.chunk.css",
-    "static/js/main.c7cada44.chunk.js"
+    "static/js/main.5ec0b3a7.chunk.js"
   ]
 }
