@@ -18,10 +18,13 @@ class MainView extends React.Component {
   addPlayer = (name) => {
     let players = this.state.players
     if (name === '') {
-      this.setState({ duplicateName: 2})
+      this.setState({ duplicateName: 1})
       return
     } else if (players.some(players => players.name === name)) {
-      this.setState({ duplicateName: 1});
+      this.setState({ duplicateName: 2});
+      return
+    } else if (name.length > 10) {
+      this.setState({ duplicateName: 3});
       return
     } else {
       if (this.state.players.length === 0) {
@@ -72,7 +75,8 @@ class MainView extends React.Component {
       <>
         <NavView />
         <div className="app-container">
-          <div className="gameselect-box">
+        <h2 className="construction">Under Construction</h2>
+          <div className="gameselect-box">            
             <h2 className="title-1">Select a Game:</h2>
             <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
               <option value="basic">Basic Score</option>

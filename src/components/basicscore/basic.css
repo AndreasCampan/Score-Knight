@@ -28,15 +28,18 @@
   border: 1px solid rgba(0, 37, 4, 1);
   border-radius: 10px;
   box-shadow: 2px 1px 2px 1px rgba(0, 37, 4, 0.7);
-  width: fit-content;
-  min-width: 300px;
-  height: 160px;
-  padding: 10px 40px;
+  width: 400px;
+  min-height: 160px;
+  padding: 10px 0 10px 40px;
+  overflow: auto;
+  font-size: 1.1em;
+  line-height: 20px;
 }
 
 .st-player {
+  width: 150px;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.2em; 
 }
 
 .st-score {
@@ -84,13 +87,13 @@
 
 .basic-bttn-minus {
   border-radius: 5px;
-  background-color: rgb(255, 118, 118);
+  background-color: rgb(253, 78, 78);
   width: 30px;
 }
 
 .basic-bttn-plus {
   border-radius: 5px;
-  background-color: rgb(118, 255, 141);
+  background-color: rgb(78, 248, 72);
   width: 30px;
 }
 
@@ -104,69 +107,52 @@
 
 @media all and (max-width: 800px) {
   .basic-container {
-    display: flex;
-    flex-direction: column;
-    align-items: top;
-    justify-content: center;
     width: 100%;
-    margin-top: 10px;
   }
 
   .player-list {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 3% 2%;
-    list-style-type: none;
-    padding: 0;
+    grid-gap: 3% 0;
   }
 }
 
 @media all and (max-width: 600px) {
   .player-list {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 3% 2%;
-    list-style-type: none;
-    padding: 0;
+    grid-gap: 3% 1%;
   }
 }
 
 @media all and (max-width: 400px) {
+  .scoreboard {
+    margin-top: 10px;
+  }
+
   .player-list {
-    display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
-    list-style-type: none;
-    padding: 0;
   }
 
   .player-card {
     font-size: 1.3em;
     width: 250px;
-    height: 110px;
-    padding: 10px 0;
   }
 
   .bttn-container {
     width: 200px;
   }
 
-  .basic-bttn-minus {
+  .basic-bttn-minus, .basic-bttn-plus {
     width: 38px;
     height: 28px;
     padding: 3px;
     font-size: 0.8em;
-
-  }
-  
-  .scoreboard {
-    margin-top: 10px;
   }
 
-  .basic-bttn-plus {
-    width: 38px;
-    height: 28px;
-    padding: 3px;
-    font-size: 0.8em;
+  .totals-box {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 300px;
   }
 }

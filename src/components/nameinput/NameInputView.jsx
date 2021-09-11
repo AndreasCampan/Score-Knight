@@ -29,9 +29,11 @@ class NameInputView extends React.Component {
     if (messageNum === 0) {
       dupMessage = <div className="duplicate-name"></div>
     } else if (messageNum === 1) {
+      dupMessage = <div className="duplicate-name">Please enter a name!</div>
+    } else if (messageNum === 2) {
       dupMessage = <div className="duplicate-name">The player already exists!</div>
     } else {
-      dupMessage = <div className="duplicate-name">Please enter a name!</div>
+      dupMessage = <div className="duplicate-name">Max 10 characters</div>
     }
 
     return(
