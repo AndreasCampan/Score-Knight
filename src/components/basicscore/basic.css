@@ -22,14 +22,14 @@
 .totals-box {
   display: grid;
   grid-template-rows: repeat(6, 20px);
-  gap: 3px 50px;
+  gap: 6px 50px;
   grid-auto-flow: column;
   text-align: left;
   border: 1px solid rgba(0, 37, 4, 1);
   border-radius: 10px;
   box-shadow: 2px 1px 2px 1px rgba(0, 37, 4, 0.7);
   width: 400px;
-  min-height: 160px;
+  min-height: 170px;
   padding: 10px 0 10px 40px;
   overflow: auto;
   font-size: 1.1em;
