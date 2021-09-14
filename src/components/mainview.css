@@ -9,15 +9,17 @@
   padding: 20px;
 }
 
-.construction {
-  color: rgb(255, 0, 0);
-}
-
 .gameselect-box {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.bttn-controls-box { 
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .title-1 {

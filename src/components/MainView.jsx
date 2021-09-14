@@ -11,7 +11,8 @@ class MainView extends React.Component {
     this.state = {
       gameType: 'basic',
       players: [],
-      duplicateName: 0
+      duplicateName: 0,
+      showDelete: false
     };
   }
 
@@ -59,12 +60,37 @@ class MainView extends React.Component {
     })
   }
 
+  resetGame = () => {
+    this.setState({
+      players: []
+    });
+  }
+
+  resetScore = () => {
+    let playersCopy2 = [...this.state.players];
+
+    let formattedArray = playersCopy2.map((element) => {
+      let array = {"id": element.name, "name": element.name, "score": 0}
+      return array
+    })
+    this.setState({
+      players: formattedArray
+    });
+  }
+
+  delPlayer = () => {
+    this.setState(prevState => ({
+      showDelete: !prevState.showDelete
+    }))
+    console.log(this.state.showDelete);
+  }
+
   render(){
     let { gameType } = this.state;
     let gameScreen;
 
     if (gameType === 'basic') {
-      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} />
+      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.players} />
     } else if (gameType === 'dopplekoff') {
       gameScreen = <DoppelkopfView />
     } else {
@@ -75,7 +101,6 @@ class MainView extends React.Component {
       <>
         <NavView />
         <div className="app-container">
-        <h2 className="construction">Under Construction</h2>
           <div className="gameselect-box">            
             <h2 className="title-1">Select a Game:</h2>
             <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
@@ -87,6 +112,11 @@ class MainView extends React.Component {
             </select>
           </div>
           <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
+          <div className="bttn-controls-box">
+            <button onClick={() => {this.resetGame()}}>Reset Game</button>
+            <button onClick={() => {this.resetScore()}}>Reset Score</button>
+            <button onClick={() => {this.delPlayer()}}>Delete Players</button>
+          </div>
           {gameScreen}
         </div>
       </>
