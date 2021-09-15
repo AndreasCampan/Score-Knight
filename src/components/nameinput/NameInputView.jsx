@@ -41,7 +41,7 @@ class NameInputView extends React.Component {
         <div className="input-inner-box">
           <h2 className="add-players-title">Add a Player:</h2>
           <form name="Score" onSubmit={this.handleSubmit} className="input-form">
-            <input type="text" onChange={this.onInput} value={this.state.nameInput} id="nameinput" placeholder="Type a Name..." />
+            <input autoComplete="off" type="text" onChange={this.onInput} value={this.state.nameInput} id="nameinput" placeholder="Type a Name..." />
             <button className="name-sub" type='submit'>Submit</button>
           </form>
         </div>
