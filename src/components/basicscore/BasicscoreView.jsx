@@ -3,19 +3,39 @@ import './basic.css'
 
 class BasicScoreView extends React.Component {
 
+  processPlayer(e){
+    let player = e.target.parentElement.parentElement.childNodes[0].innerText
+    this.props.delPlayer(player);
+  }
+
   render() {
+    let showDelete = this.props.showDelete;
+    let delBox;
+    let cardStyle
+  
+      if(showDelete === true) {
+        delBox = 
+          <button className="del-container" onClick={(e)=>{this.processPlayer(e)}}>
+            <span className="spinner top"></span>
+            <span className="spinner bot"></span>
+          </button>
+          cardStyle = { 'backgroundColor': 'rgb(200, 200, 200)'}
+      } else {
+        delBox = <div className="del-container"></div>
+      }
     const playersArray = this.props.players
     let playersArrayCopy = [...playersArray]
     let drawPlayers = playersArray.map((data) => {
       return (
-      <li className="player-card" key={data.id}>
+      <li className="player-card" key={data.id} style={ cardStyle }>
         <span className="player-name">{data.name}</span>
         <span className="player-score"> { data.score} </span>
+        { delBox }
         <div className="bttn-container">
-          <button className="basic-bttn-minus up" onClick={()=>{this.props.updateScore(data.name, -5)}}>-5</button>
-          <button className="basic-bttn-minus down" onClick={()=>{this.props.updateScore(data.name, -1)}}>-1</button>
-          <button className="basic-bttn-plus down" onClick={()=>{this.props.updateScore(data.name, 1)}}>+1</button>
-          <button className="basic-bttn-plus up" onClick={()=>{this.props.updateScore(data.name, 5)}}>+5</button>
+          <button style={ cardStyle } className="basic-bttn-minus up" onClick={()=>{this.props.updateScore(data.name, -5)}}>-5</button>
+          <button style={ cardStyle } className="basic-bttn-minus down" onClick={()=>{this.props.updateScore(data.name, -1)}}>-1</button>
+          <button style={ cardStyle } className="basic-bttn-plus down" onClick={()=>{this.props.updateScore(data.name, 1)}}>+1</button>
+          <button style={ cardStyle } className="basic-bttn-plus up" onClick={()=>{this.props.updateScore(data.name, 5)}}>+5</button>
         </div>
       </li>
       )

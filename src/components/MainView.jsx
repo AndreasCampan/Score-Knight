@@ -47,7 +47,15 @@ class MainView extends React.Component {
     playersCopy[elementsIndex] = {...playersCopy[elementsIndex], score: value + playerOldScore }
     
     this.setState({ players: playersCopy})
+  }
 
+  delPlayer = (name) => {
+    let playersCopy = [...this.state.players];
+    let playersCopy2 = playersCopy.filter(person => person.name !== name);
+
+    this.setState({
+      players: playersCopy2
+    });
   }
 
   changeDuplicate = () =>  {
@@ -78,19 +86,25 @@ class MainView extends React.Component {
     });
   }
 
-  delPlayer = () => {
+  showDeletePlayer = () => {
     this.setState(prevState => ({
       showDelete: !prevState.showDelete
     }))
-    console.log(this.state.showDelete);
   }
 
   render(){
     let { gameType } = this.state;
     let gameScreen;
+    let delActive;
+
+    if(this.state.showDelete === true) {
+      delActive = { 'backgroundColor': 'red'}
+    } else {
+      delActive = {}
+    }
 
     if (gameType === 'basic') {
-      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.players} />
+      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
     } else if (gameType === 'dopplekoff') {
       gameScreen = <DoppelkopfView />
     } else {
@@ -115,7 +129,7 @@ class MainView extends React.Component {
           <div className="bttn-controls-box">
             <button onClick={() => {this.resetGame()}}>Reset Game</button>
             <button onClick={() => {this.resetScore()}}>Reset Score</button>
-            <button onClick={() => {this.delPlayer()}}>Delete Players</button>
+            <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Delete Players</button>
           </div>
           {gameScreen}
         </div>
