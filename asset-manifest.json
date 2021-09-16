@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Score-Knight/static/css/main.30d2e89a.chunk.css",
-    "main.js": "/Score-Knight/static/js/main.280de687.chunk.js",
-    "main.js.map": "/Score-Knight/static/js/main.280de687.chunk.js.map",
+    "main.js": "/Score-Knight/static/js/main.1b3fd73f.chunk.js",
+    "main.js.map": "/Score-Knight/static/js/main.1b3fd73f.chunk.js.map",
     "runtime-main.js": "/Score-Knight/static/js/runtime-main.b7ee5dbf.js",
     "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.b7ee5dbf.js.map",
     "static/js/2.fba548d8.chunk.js": "/Score-Knight/static/js/2.fba548d8.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.b7ee5dbf.js",
     "static/js/2.fba548d8.chunk.js",
     "static/css/main.30d2e89a.chunk.css",
-    "static/js/main.280de687.chunk.js"
+    "static/js/main.1b3fd73f.chunk.js"
   ]
 }
