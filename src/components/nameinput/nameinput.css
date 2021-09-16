@@ -71,7 +71,7 @@
   }
   
   .name-sub {
-    margin: 10px 0;
+    margin: 10px 0 0;
   }
 
   .nameInput-container {
@@ -79,5 +79,10 @@
     flex-direction: column;
     align-items: center;
     height: 125px;
+  }
+
+  .duplicate-name{
+    font-size: 1em;
+    height: 25px;
   }
 }

@@ -39,7 +39,7 @@
 .st-player {
   min-width: 240px;
   font-weight: 600;
-  font-size: 1.2em; 
+  font-size: 1.2em;
 }
 
 .st-score {
@@ -53,10 +53,9 @@
 .player-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3% 0;
+  grid-gap: 10px 0;
   list-style-type: none;
   padding: 0;
-  margin: 0;
   justify-items: center;
 }
 
@@ -169,7 +168,7 @@
 @media all and (max-width: 700px) {
   .player-list {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 3% 1%;
+    grid-gap: 5px 0;
   }
 
   .totals-box {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './mainview.css';
 import NavView from './navigation/NavView';
+import FooterView from './footer/FooterView';
 import BasicScoreView from './basicscore/BasicscoreView'
 import DoppelkopfView from './doppelkopf/DoppelkopfView'
 import NameInputView from './nameinput/NameInputView'
@@ -142,8 +143,9 @@ class MainView extends React.Component {
             <button onClick={() => {this.resetScore()}}>Reset Score</button>
             <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Edit Players</button>
           </div>
-          {gameScreen}
+          { gameScreen }
         </div>
+        <FooterView />
       </>
     );
   }

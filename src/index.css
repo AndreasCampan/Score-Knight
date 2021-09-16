@@ -3,19 +3,21 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+html, body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0;
   background-color: rgb(255, 255, 255);
+  width: 100%;
+  min-width: 280px;
 }
 
 .app-bg {
+  position: relative;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }

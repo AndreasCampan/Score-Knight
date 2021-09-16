@@ -5,7 +5,6 @@ import MainView from './components/MainView';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
-
 class App extends React.Component{
   render() {
     return(
