@@ -69,9 +69,14 @@ class MainView extends React.Component {
   }
 
   resetGame = () => {
-    this.setState({
-      players: []
-    });
+    if(window.confirm('Are you sure you want to erase all game data?')){
+      this.setState({
+        players: []
+      });
+    } else {
+      return
+    }
+    
   }
 
   resetScore = () => {
@@ -81,9 +86,15 @@ class MainView extends React.Component {
       let array = {"id": element.name, "name": element.name, "score": 0}
       return array
     })
-    this.setState({
-      players: formattedArray
-    });
+
+    if(window.confirm("Are you sure you want to reset every player's score?")){
+      this.setState({
+        players: formattedArray
+      });
+    } else {
+      return
+    }
+    
   }
 
   showDeletePlayer = () => {
