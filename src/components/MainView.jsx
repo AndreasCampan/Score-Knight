@@ -129,8 +129,8 @@ class MainView extends React.Component {
           <div className="gameselect-box">            
             <h2 className="title-1">Select a Game:</h2>
             <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
-              <option value="basic">Basic Score</option>
-              <option value="dopplekoff">Dopplekoff</option>
+              <option value="basic">Basic Score Keeper</option>
+              <option value="doppelkopf">Doppelkopf</option>
               <option value="president">President</option>
               <option value="rummyo">Rummy-O</option>
               <option value="wizard">Wizard</option>
