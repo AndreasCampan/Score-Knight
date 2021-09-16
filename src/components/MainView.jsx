@@ -129,7 +129,7 @@ class MainView extends React.Component {
           <div className="bttn-controls-box">
             <button onClick={() => {this.resetGame()}}>Reset Game</button>
             <button onClick={() => {this.resetScore()}}>Reset Score</button>
-            <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Delete Players</button>
+            <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Edit Players</button>
           </div>
           {gameScreen}
         </div>

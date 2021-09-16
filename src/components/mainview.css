@@ -14,16 +14,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .bttn-controls-box { 
   display: flex;
   flex-direction: row;
   gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .title-1 {
-  margin-right: 10px;
+  margin: 15px 10px 15px 0;
 }
 
 #games {
@@ -34,31 +38,25 @@
 
 @media all and (max-width: 800px) {
   .app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-    text-align: center;
     width: 100%;
-    min-height: 500px;
-    padding: 20px;
+    padding: 5px;
   }
 }
 
 @media all and (max-width: 400px) {
   .gameselect-box {
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   .title-1 {
     margin: 10px 0 15px;
-  }
+  }  
 }
 
 @media all and (max-width: 320px) {
   .gameselect-box {
     flex-direction: column;
-    margin-bottom: 55px;
+    margin-bottom: 15px;
   }
 }
