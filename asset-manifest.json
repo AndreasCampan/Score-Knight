@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Score-Knight/static/css/main.ce86aa6e.chunk.css",
-    "main.js": "/Score-Knight/static/js/main.c6a3fccd.chunk.js",
-    "main.js.map": "/Score-Knight/static/js/main.c6a3fccd.chunk.js.map",
-    "runtime-main.js": "/Score-Knight/static/js/runtime-main.efc94bb2.js",
-    "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.efc94bb2.js.map",
+    "main.css": "/Score-Knight/static/css/main.a356a88b.chunk.css",
+    "main.js": "/Score-Knight/static/js/main.d26a526e.chunk.js",
+    "main.js.map": "/Score-Knight/static/js/main.d26a526e.chunk.js.map",
+    "runtime-main.js": "/Score-Knight/static/js/runtime-main.b1f7f93c.js",
+    "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.b1f7f93c.js.map",
     "static/js/2.fba548d8.chunk.js": "/Score-Knight/static/js/2.fba548d8.chunk.js",
     "static/js/2.fba548d8.chunk.js.map": "/Score-Knight/static/js/2.fba548d8.chunk.js.map",
-    "static/js/3.f99bd7c4.chunk.js": "/Score-Knight/static/js/3.f99bd7c4.chunk.js",
-    "static/js/3.f99bd7c4.chunk.js.map": "/Score-Knight/static/js/3.f99bd7c4.chunk.js.map",
+    "static/js/3.1aab14c6.chunk.js": "/Score-Knight/static/js/3.1aab14c6.chunk.js",
+    "static/js/3.1aab14c6.chunk.js.map": "/Score-Knight/static/js/3.1aab14c6.chunk.js.map",
     "index.html": "/Score-Knight/index.html",
     "service-worker.js": "/Score-Knight/service-worker.js",
     "service-worker.js.map": "/Score-Knight/service-worker.js.map",
-    "static/css/main.ce86aa6e.chunk.css.map": "/Score-Knight/static/css/main.ce86aa6e.chunk.css.map",
+    "static/css/main.a356a88b.chunk.css.map": "/Score-Knight/static/css/main.a356a88b.chunk.css.map",
     "static/js/2.fba548d8.chunk.js.LICENSE.txt": "/Score-Knight/static/js/2.fba548d8.chunk.js.LICENSE.txt",
     "static/media/github-footer.e21209f2.svg": "/Score-Knight/static/media/github-footer.e21209f2.svg",
     "static/media/sk-logo.438c49c3.svg": "/Score-Knight/static/media/sk-logo.438c49c3.svg",
     "static/media/twitter-footer.642a257c.svg": "/Score-Knight/static/media/twitter-footer.642a257c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.efc94bb2.js",
+    "static/js/runtime-main.b1f7f93c.js",
     "static/js/2.fba548d8.chunk.js",
-    "static/css/main.ce86aa6e.chunk.css",
-    "static/js/main.c6a3fccd.chunk.js"
+    "static/css/main.a356a88b.chunk.css",
+    "static/js/main.d26a526e.chunk.js"
   ]
 }
