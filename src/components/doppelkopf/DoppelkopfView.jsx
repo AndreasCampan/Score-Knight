@@ -1,22 +1,33 @@
 import React from 'react';
-import './Doppelkopf.css'
+import './doppelkopf.css'
 import spades from '../../img/spades.png'
 import hearts from '../../img/hearts.png'
 import clubs from '../../img/clubs.png'
 import diamonds from '../../img/diamonds.png'
 
 class DoppelkopfView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDetails: false
+    };
+  }
+
+  toggleHide = () => {
+    this.setState(prevState => ({
+      showDetails: !prevState.showDetails
+    }))
+  }
 
   render(){
-    return(
-      <div className="basic-container">
-        <h1>Doppelkopf</h1>
-        <p style={{ color: 'red', margin: 0}}>Under Construction</p>
-        <div className="dop-container">
+    let gameDetails;
+
+    if (this.state.showDetails === true) {
+      gameDetails =  <div className="game-details-box">
           <table className="trump-box">
             <thead>
               <tr>
-                <th colSpan="2" className="table-headings">Trumps</th>
+                <th colSpan="3" className="table-headings">Trumps</th>
               </tr>
             </thead>
             <tbody>
@@ -119,13 +130,32 @@ class DoppelkopfView extends React.Component {
           </div>
           <div className="point-box">
             <h2 className="table-headings">Game Scoring</h2>
-            <table>
-              <tbody>
-                <tr></tr>
-              </tbody>
-            </table>
+            <ol className="DK-ol">
+              <li>1 Point - for each score (120, 90, 60, 30, 0) not acquired by the opponents</li>
+              <li>1 Point - for each no 120, 90, 60, 30, 0 called at the beginning of the game</li>
+              <li>Re/Contra - double the points</li>
+              <li>1 Point - for each of the following:</li>
+              <ul>
+                <li>Karlchen: Last pot with 'Jack of Clubs"</li>
+                <li>Doppelkopf: Pot with more than 40 points</li>
+                <li>Solo: Queen, Jack, Suit, Marriage</li>
+                <li>Fox: Ace of diamonds caught by opponents</li>
+                <li>Elderly: Won against the Queens</li>
+              </ul>
+            </ol>              
           </div>
         </div>
+
+    } else {
+      gameDetails = <div><p>Coming Soon!!</p></div>
+    }
+  
+    return(
+      <div className="dop-container">
+        <h1>Doppelkopf</h1>
+        <p style={{ color: 'red', margin: 0}}>Under Construction</p>
+        <button className="rules-bttn-tog" onClick={()=>{this.toggleHide()}}>Game Details</button>
+        { gameDetails }
       </div>
     )
   }

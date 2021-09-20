@@ -3,6 +3,7 @@ import './mainview.css';
 import NavView from './navigation/NavView';
 import FooterView from './footer/FooterView';
 import BasicScoreView from './basicscore/BasicscoreView'
+import KabooView from './kaboo/KabooView'
 import DoppelkopfView from './doppelkopf/DoppelkopfView'
 import NameInputView from './nameinput/NameInputView'
 
@@ -119,6 +120,8 @@ class MainView extends React.Component {
       gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
     } else if (gameType === 'doppelkopf') {
       gameScreen = <DoppelkopfView />
+    } else if (gameType === 'kaboo') {
+      gameScreen = <KabooView />
     } else {
       gameScreen = <div><p>Coming Soon!!</p></div>
     }
@@ -132,6 +135,7 @@ class MainView extends React.Component {
             <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
               <option value="basic">Basic Score Keeper</option>
               <option value="doppelkopf">Doppelkopf</option>
+              <option value="kaboo">Kaboo (Cabo)</option>
               <option value="president">President</option>
               <option value="rummyo">Rummy-O</option>
               <option value="wizard">Wizard</option>
