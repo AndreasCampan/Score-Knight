@@ -117,7 +117,7 @@ class MainView extends React.Component {
 
     if (gameType === 'basic') {
       gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
-    } else if (gameType === 'dopplekoff') {
+    } else if (gameType === 'doppelkopf') {
       gameScreen = <DoppelkopfView />
     } else {
       gameScreen = <div><p>Coming Soon!!</p></div>
