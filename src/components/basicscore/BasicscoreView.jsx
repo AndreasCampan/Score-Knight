@@ -8,6 +8,10 @@ class BasicScoreView extends React.Component {
     this.props.delPlayer(player);
   }
 
+  addTempScore(name, value){
+    this.props.updateScore(name, value);
+  }
+
   render() {
     let showDelete = this.props.showDelete;
     let delBox;
@@ -29,13 +33,17 @@ class BasicScoreView extends React.Component {
       return (
       <li className="player-card" key={data.id} style={ cardStyle }>
         <span className="player-name">{data.name}</span>
-        <span className="player-score"> { data.score} </span>
+        <div className="player-scoreBox">
+          <span className="player-score"> Total: {data.score} </span>
+          <span className="player-round-score"> Round: {data.tempScore} </span>
+        </div>
+        <button onClick={()=>{this.addTempScore(data.name, data.tempScore)}} >Add to Total</button>
         { delBox }
         <div className="bttn-container">
-          <button style={ cardStyle } className="basic-bttn-minus up" onClick={()=>{this.props.updateScore(data.name, -5)}}>-5</button>
-          <button style={ cardStyle } className="basic-bttn-minus down" onClick={()=>{this.props.updateScore(data.name, -1)}}>-1</button>
-          <button style={ cardStyle } className="basic-bttn-plus down" onClick={()=>{this.props.updateScore(data.name, 1)}}>+1</button>
-          <button style={ cardStyle } className="basic-bttn-plus up" onClick={()=>{this.props.updateScore(data.name, 5)}}>+5</button>
+          <button style={ cardStyle } className="basic-bttn-minus up" onClick={()=>{this.props.updateTempScore(data.name, -5)}}>-5</button>
+          <button style={ cardStyle } className="basic-bttn-minus down" onClick={()=>{this.props.updateTempScore(data.name, -1)}}>-1</button>
+          <button style={ cardStyle } className="basic-bttn-plus down" onClick={()=>{this.props.updateTempScore(data.name, 1)}}>+1</button>
+          <button style={ cardStyle } className="basic-bttn-plus up" onClick={()=>{this.props.updateTempScore(data.name, 5)}}>+5</button>
         </div>
       </li>
       )
