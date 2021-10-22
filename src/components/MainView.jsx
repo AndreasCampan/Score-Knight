@@ -26,7 +26,7 @@ class MainView extends React.Component {
     } else if (players.some(players => players.name === name)) {
       this.setState({ duplicateName: 2});
       return
-    } else if (name.length > 10) {
+    } else if (name.length > 12) {
       this.setState({ duplicateName: 3});
       return
     } else {
@@ -119,7 +119,7 @@ class MainView extends React.Component {
     if (gameType === 'basic') {
       gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
     } else if (gameType === 'doppelkopf') {
-      gameScreen = <DoppelkopfView />
+      gameScreen = <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/>
     } else if (gameType === 'kaboo') {
       gameScreen = <KabooView />
     } else {
