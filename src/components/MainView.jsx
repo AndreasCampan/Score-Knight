@@ -31,14 +31,24 @@ class MainView extends React.Component {
       return
     } else {
       if (this.state.players.length === 0) {
-        this.setState({players: [{id: name, name: name, score: 0}]});
+        this.setState({players: [{id: name, name: name, tempScore: 0, score: 0}]});
       } else {
         let namesArray = this.state.players
-        namesArray.push({id: name, name: name, score: 0})
+        namesArray.push({id: name, name: name, tempScore: 0, score: 0})
         this.setState({players: namesArray})
       }
       this.setState({ duplicateName: 0});
     } 
+  }
+
+  updateTempScore = (name, value) => {
+    const elementsIndex = this.state.players.findIndex(el => el.id === name);
+    let playersCopy = [...this.state.players];
+    let playerOldScore = this.state.players[elementsIndex].tempScore
+
+    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], tempScore: value + playerOldScore }
+    
+    this.setState({ players: playersCopy})
   }
 
   updateScore = (name, value) => {
@@ -46,7 +56,7 @@ class MainView extends React.Component {
     let playersCopy = [...this.state.players];
     let playerOldScore = this.state.players[elementsIndex].score
 
-    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], score: value + playerOldScore }
+    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], score: value + playerOldScore, tempScore: 0 }
     
     this.setState({ players: playersCopy})
   }
@@ -85,7 +95,7 @@ class MainView extends React.Component {
     let playersCopy2 = [...this.state.players];
 
     let formattedArray = playersCopy2.map((element) => {
-      let array = {"id": element.name, "name": element.name, "score": 0}
+      let array = {"id": element.name, "name": element.name, "tempScore": 0, "score": 0}
       return array
     })
 
@@ -117,7 +127,7 @@ class MainView extends React.Component {
     }
 
     if (gameType === 'basic') {
-      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
+      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
     } else if (gameType === 'doppelkopf') {
       gameScreen = <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/>
     } else if (gameType === 'kaboo') {
