@@ -4,6 +4,7 @@ import spades from '../../img/spades.png'
 import hearts from '../../img/hearts.png'
 import clubs from '../../img/clubs.png'
 import diamonds from '../../img/diamonds.png'
+import BasicScoreView from '../basicscore/BasicscoreView'
 
 class DoppelkopfView extends React.Component {
   constructor(props) {
@@ -147,7 +148,7 @@ class DoppelkopfView extends React.Component {
         </div>
 
     } else {
-      gameDetails = <div><p>Coming Soon!!</p></div>
+      gameDetails = <div></div>
     }
   
     return(
@@ -156,6 +157,8 @@ class DoppelkopfView extends React.Component {
         <p style={{ color: 'red', margin: 0}}>Under Construction</p>
         <button className="rules-bttn-tog" onClick={()=>{this.toggleHide()}}>Game Details</button>
         { gameDetails }
+        <BasicScoreView players={this.props.players} updateScore={this.props.updateScore} showDelete={this.props.showDelete} delPlayer={this.props.delPlayer}/>
+
       </div>
     )
   }
