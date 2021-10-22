@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Score-Knight/static/css/main.5492d4f1.chunk.css",
+    "main.css": "/Score-Knight/static/css/main.f5619afa.chunk.css",
     "main.js": "/Score-Knight/static/js/main.8741cc58.chunk.js",
     "main.js.map": "/Score-Knight/static/js/main.8741cc58.chunk.js.map",
     "runtime-main.js": "/Score-Knight/static/js/runtime-main.b1f7f93c.js",
@@ -12,7 +12,7 @@
     "index.html": "/Score-Knight/index.html",
     "service-worker.js": "/Score-Knight/service-worker.js",
     "service-worker.js.map": "/Score-Knight/service-worker.js.map",
-    "static/css/main.5492d4f1.chunk.css.map": "/Score-Knight/static/css/main.5492d4f1.chunk.css.map",
+    "static/css/main.f5619afa.chunk.css.map": "/Score-Knight/static/css/main.f5619afa.chunk.css.map",
     "static/js/2.50ece3a7.chunk.js.LICENSE.txt": "/Score-Knight/static/js/2.50ece3a7.chunk.js.LICENSE.txt",
     "static/media/github-footer.e21209f2.svg": "/Score-Knight/static/media/github-footer.e21209f2.svg",
     "static/media/sk-logo.438c49c3.svg": "/Score-Knight/static/media/sk-logo.438c49c3.svg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.b1f7f93c.js",
     "static/js/2.50ece3a7.chunk.js",
-    "static/css/main.5492d4f1.chunk.css",
+    "static/css/main.f5619afa.chunk.css",
     "static/js/main.8741cc58.chunk.js"
   ]
 }
