@@ -6,6 +6,7 @@ import BasicScoreView from './basicscore/BasicscoreView'
 import KabooView from './kaboo/KabooView'
 import DoppelkopfView from './doppelkopf/DoppelkopfView'
 import NameInputView from './nameinput/NameInputView'
+import WizardView from './wizard/WizardView'
 
 class MainView extends React.Component {
   constructor(props) {
@@ -126,14 +127,25 @@ class MainView extends React.Component {
       delActive = {}
     }
 
+    let gameControls = <> 
+      <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
+      <div className="bttn-controls-box">
+        <button onClick={() => {this.resetGame()}}>Reset Game</button>
+        <button onClick={() => {this.resetScore()}}>Reset Score</button>
+        <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Edit Players</button>
+      </div>
+    </>
+
     if (gameType === 'basic') {
-      gameScreen = <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} />
+      gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
     } else if (gameType === 'doppelkopf') {
-      gameScreen = <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/>
+      gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
     } else if (gameType === 'kaboo') {
-      gameScreen = <KabooView />
+      gameScreen = <> { gameControls } <KabooView /></>
+    } else if (gameType === 'wizard') {
+      gameScreen = <WizardView />
     } else {
-      gameScreen = <div><p>Coming Soon!!</p></div>
+      gameScreen =  <> { gameControls } <div><p>Coming Soon!!</p></div> </>
     }
 
     return (
@@ -150,12 +162,6 @@ class MainView extends React.Component {
               <option value="rummyo">Rummy-O</option>
               <option value="wizard">Wizard</option>
             </select>
-          </div>
-          <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
-          <div className="bttn-controls-box">
-            <button onClick={() => {this.resetGame()}}>Reset Game</button>
-            <button onClick={() => {this.resetScore()}}>Reset Score</button>
-            <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Edit Players</button>
           </div>
           { gameScreen }
         </div>
