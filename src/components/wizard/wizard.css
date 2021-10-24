@@ -1,8 +1,17 @@
-.playerSelect-box {
+.stats-box {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
+  width: 280px;
+}
+
+.title-wiz {
+  margin: 0.5em 0;
+}
+
+.count-style {
+  font-size: 1.3em;
 }
