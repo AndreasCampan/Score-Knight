@@ -13,6 +13,7 @@ class WizardView extends React.Component {
       curtRound: 0,
       finishBid: 0,
       finishRound: 0,
+      finishedGame: 0,
       start: 0
     }
   }
@@ -43,10 +44,10 @@ class WizardView extends React.Component {
       return
     } else {
       if (this.state.wizPlayers.length === 0) {
-        this.setState({wizPlayers: [{id: name, name: name, score: 0}]});
+        this.setState({wizPlayers: [{id: name, name: name, score: 0, bid: 0, actual: 0}]});
       } else {
         let namesArray = this.state.wizPlayers
-        namesArray.push({id: name, name: name, score: 0})
+        namesArray.push({id: name, name: name, score: 0, bid: 0, actual: 0})
         this.setState({wizPlayers: namesArray})
       }
       this.setState({ duplicateName: 0});
@@ -63,7 +64,6 @@ class WizardView extends React.Component {
   //Automatically adjusts the number of roundNum based on how many players
   roundAmt = () => {
     let size = Object.keys(this.state.wizPlayers).length;
-    console.log(size)
     switch (size) {
       case 1 || 2 || 3:
         this.setState({
@@ -96,6 +96,49 @@ class WizardView extends React.Component {
     });
   }
 
+  //Updates the bid amount for the player that invokes the function
+  updateBid = (name, value) => {
+    const elementsIndex = this.state.wizPlayers.findIndex(el => el.id === name);
+    let wizPlayersCopy = [...this.state.wizPlayers];
+    let playerOldBid = this.state.wizPlayers[elementsIndex].bid
+
+    wizPlayersCopy[elementsIndex] = {...wizPlayersCopy[elementsIndex], bid: value + playerOldBid}
+    
+    this.setState({ wizPlayers: wizPlayersCopy})
+  }
+
+  //Updates the actual tricks won for the player that invokes the function
+  updateActual = (name, value) => {
+    const elementsIndex = this.state.wizPlayers.findIndex(el => el.id === name);
+    let wizPlayersCopy = [...this.state.wizPlayers];
+    let playerOldActual = this.state.wizPlayers[elementsIndex].actual
+
+    wizPlayersCopy[elementsIndex] = {...wizPlayersCopy[elementsIndex], actual: value + playerOldActual}
+    
+    this.setState({ wizPlayers: wizPlayersCopy})
+  }
+  
+  updateScore = () => {
+    //Object.assign([], this.state.wizPlayers)
+    //[...this.state.wizPlayers]
+    let players = Array.from(this.state.wizPlayers)
+    
+    for(let i=0; i < players.length; i++){
+      let score = 0;
+      if( players[i].actual === players[i].bid){
+        score = players[i].score + 20 + Math.abs((players[i].actual - players[i].bid) * 10);
+        players[i].score = score;
+        players[i].bid = 0;
+        players[i].actual = 0;
+      } else if(players[i].actual > players[i].bid || players[i].actual < players[i].bid) {
+        score = players[i].score - (Math.abs(players[i].actual - players[i].bid)) * 10;
+        players[i].score = score;
+        players[i].bid = 0;
+        players[i].actual = 0;
+      }
+    }
+  }
+
   drawPlayerCards = () => {
     let game;
     if(this.state.start === 0){
@@ -105,17 +148,39 @@ class WizardView extends React.Component {
         )
       });
     } else {
-      if(this.state.curtRound < this.state.roundNum){
-        game = this.state.wizPlayers.map((data) => {
-          return (
-            <li className="player-card" key={data.id}>
-        <span className="player-name">{data.name}</span>
-        <div className="player-scoreBox">
-          <input autoComplete="off" type="text" onChange={this.onInput} placeholder="Bid" />
-        </div>
-      </li>
-          )
-        });
+      if(this.state.curtRound <= this.state.roundNum + 1 && this.state.finishedGame === 0){
+        if(this.state.finishBid === 1){
+          game = this.state.wizPlayers.map((data) => {
+            return (
+                <li className="player-card" key={data.id}>
+                  <span className="player-name">{data.name}</span>
+                  <div className="player-scoreBox">Bid: {data.bid} </div>
+                  <div className="wiz-bttn-container">
+                    <button className="basic-bttn-minus down" onClick={()=>{this.updateBid(data.name, -1)}}>-1</button>
+                    <button className="basic-bttn-plus down" onClick={()=>{this.updateBid(data.name, 1)}}>+1</button>
+                  </div>
+                </li>
+            )
+          });
+        }
+
+        if(this.state.finishBid === 2){
+          game = this.state.wizPlayers.map((data) => {
+            return (
+                <li className="player-card" key={data.id}>
+                  <span className="player-name">{data.name}</span>
+                  <div className="player-scoreBox">Bid: {data.bid} </div>
+                  <div className="player-scoreBox">Tricks won: {data.actual} </div>
+                  <div className="wiz-bttn-container">
+                    <button className="basic-bttn-minus down" onClick={()=>{this.updateActual(data.name, -1)}}>-1</button>
+                    <button className="basic-bttn-plus down" onClick={()=>{this.updateActual(data.name, 1)}}>+1</button>
+                  </div>
+                </li>
+            )
+          });
+        }
+      } else {
+       game = <div>Game Over!</div>
       }
     }
     return game
@@ -124,14 +189,62 @@ class WizardView extends React.Component {
   runGame = () => {
     this.setState({
       start: 1,
-      curtRound: 1
+      curtRound: 1,
+      finishBid: 1
+    })
+  }
+
+  finishBidding = () => {
+    this.setState({
+      finishBid: 2
     })
   }
   
+  finishRound = () => {
+    this.updateScore();
+
+    if(this.state.curtRound < this.state.roundNum){
+      this.setState(prevState => ({
+        finishBid: 1,
+        curtRound: prevState.curtRound + 1
+      }));
+    } else {
+      this.setState({
+        finishBid: 0,
+        finishedGame: 1
+      });
+    }
+
+  }
+
   render() {
     let startGame;
-    if(this.state.start === 0){
-      startGame = <button onClick={()=>{this.runGame()}}>Start Game</button>
+    let nameForm;
+    let finishBid;
+    let finishActual;
+    let scoreboard;
+    
+    let scoreTable = this.state.wizPlayers.map((data) => {
+      return (
+      <li className="st-player" key={data.id}>
+        {data.name} <span className="st-score">{ data.score }</span>
+      </li>
+      )
+    })
+
+    if(this.state.start === 1){
+      scoreboard = <div className="scoreboard">
+        <h2 className="scoreboard-title">Scoreboard</h2>
+        <ol className="totals-box">
+          { scoreTable }
+        </ol>
+      </div>
+    } else {
+      scoreboard = <></>
+    }
+
+    if(this.state.start === 0 && this.state.wizPlayers.length >= 2){
+      startGame = <button className="standard-bttn" onClick={()=>{this.runGame()}}>Start Game</button>
     } else {
       startGame = <></>
     }
@@ -148,7 +261,6 @@ class WizardView extends React.Component {
     }
     
     //Name input form (Different input from other games). Removes itself when max players achieved
-    let nameForm;
     if(this.state.numPlayers < 6 && this.state.start === 0){
       nameForm = <>
           <div className="nameInput-container">
@@ -156,28 +268,47 @@ class WizardView extends React.Component {
             <h2 className="add-players-title">Enter Name:</h2>
             <form name="Score" onSubmit={this.handleSubmit} className="input-form">
               <input autoComplete="off" type="text" onChange={this.onInput} value={this.state.nameInput} id="nameinput" placeholder="Type a Name..." />
-              <button className="name-sub" type='submit'>Submit</button>
+              <button className="standard-bttn" type='submit'>Submit</button>
             </form>
           </div>
-          { }
+          { dupMessage }
         </div> 
       </>
     } else {
       nameForm = <></>
     }    
 
+    if(this.state.finishBid === 1){
+      finishBid = <button className="standard-bttn" onClick={()=>{this.finishBidding()}}>Finish Bid</button>
+    } else {
+      <></>
+    }
+
+    if(this.state.finishBid === 2){
+      finishActual = <button className="standard-bttn" onClick={()=>{this.finishRound()}}>Finish Tricks</button>
+    } else {
+      <></>
+    }
+
     return (
       <>
       <div className="stats-box">            
         <h2 className="title-wiz">Players:</h2>
         <div className="count-style"> { this.state.numPlayers } </div>
-        <h2 className="title-wiz">Rounds:</h2>
+        <h2 className="title-wiz">Round:</h2>
         <div className="count-style"> { this.state.curtRound}/{ this.state.roundNum } </div>
       </div>
       { nameForm }
-      { dupMessage }
-      { this.drawPlayerCards() }
-      { startGame }
+      <div className="basic-container">
+        { scoreboard }
+        <ul className="player-list">
+          { this.drawPlayerCards() }
+        </ul>
+      </div>
+        { startGame }
+        { finishBid }
+        { finishActual }
+
       </>
     );
   }

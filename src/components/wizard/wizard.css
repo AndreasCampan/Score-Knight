@@ -6,12 +6,25 @@
   margin: 0;
   padding: 0;
   width: 280px;
+  height: 40px;
 }
 
 .title-wiz {
-  margin: 0.5em 0;
+  margin: 0;
 }
 
 .count-style {
   font-size: 1.3em;
+}
+
+.wiz-data-table {
+  margin: 1em 0;
+}
+
+.wiz-bttn-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 4px;
+  width: 140px;
+  justify-items: center;
 }
