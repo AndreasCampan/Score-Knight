@@ -126,7 +126,7 @@ class WizardView extends React.Component {
     for(let i=0; i < players.length; i++){
       let score = 0;
       if( players[i].actual === players[i].bid){
-        score = players[i].score + 20 + Math.abs((players[i].actual - players[i].bid) * 10);
+        score = players[i].score + 20 + Math.abs(players[i].actual * 10);
         players[i].score = score;
         players[i].bid = 0;
         players[i].actual = 0;
