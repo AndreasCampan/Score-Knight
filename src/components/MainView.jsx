@@ -17,7 +17,9 @@ class MainView extends React.Component {
       players: [],
       duplicateName: 0,
       showDelete: false,
+      kabooShowDetails: false,
       presidentShowDetails: false
+      
     };
   }
 

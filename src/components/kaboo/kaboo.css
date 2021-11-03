@@ -1,14 +1,38 @@
-.dop-container {
+.kaboo-game-details-box {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 800px;
+  width: 100%;
   margin-top: 10px;
 }
 
-.table-headings {
-  margin: 0 0 5px;
+.kaboo-value-box {
+  width: 200px;
+  height: auto;
+  border: 2px solid rgb(0, 65, 6);
+  text-align: left;
+  padding: 5px; 
+  border-radius: 8px;
+  margin: 5px;
+  line-height: 1.2em;
+}
+
+.kaboo-card-values {
+  display: grid;
+  grid-template-rows: repeat(9, 20px);
+  gap: 5px 30px;
+  grid-auto-flow: column;
+  font-size: 1.1em;
+  line-height: 20px;
+  text-align: left;
+  align-items: center;
+  justify-items: center;
+  margin: 10px 0;
+}
+
+.kaboo-table-headings {
+  margin: 5px 0;
   padding: 0;
   font-size: 1em;
   color: rgb(0, 65, 6);
@@ -16,26 +40,7 @@
   text-align: center;
 }
 
-.suite-symbols {
-  width: 15px;
-  align-self: center;
-  justify-self: center;
-  margin: 0 2px;
-}
-
-
-.trump-box, .value-box {
-  width: 300px;
-  border: 2px solid rgb(0, 65, 6);
-  text-align: left;
-  padding: 5px; 
-  border-radius: 8px;
-  counter-reset: count;
-  margin: 5px;
-  line-height: 1.2em;
-}
-
-.point-box  {
+.kaboo-action-box {
   width: 300px;
   border: 2px solid rgb(0, 65, 6);
   text-align: left;
@@ -46,35 +51,17 @@
   line-height: 1.3em;
 }
 
-ol.DK-ol {
-  padding-left: 20px;
+.kaboo-card-actions li {
+  margin: 5px 0;
+  padding-left: 10px;
 }
 
-th {
-  text-align: center;
-}
-
-td + td {
-  display: flex;
-  align-content: center;
-  justify-content: right;
-}
-
-tbody > tr::before {
-  counter-increment: count;
-  content: counter(count) ".";
-}
-
-
-.card-values {
-  display: grid;
-  grid-template-rows: repeat(3, 20px);
-  gap: 5px 30px;
-  grid-auto-flow: column;
-  font-size: 1.1em;
-  line-height: 20px;
-  text-align: left;
-  counter-reset: count; 
-  align-items: center;
-  justify-items: center;
+@media all and (max-width: 800px) {
+  .-kaboo-game-details-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
 }
