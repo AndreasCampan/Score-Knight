@@ -1,10 +1,10 @@
 import React from 'react';
-import './doppelkopf.css'
-import spades from '../../img/spades.png'
-import hearts from '../../img/hearts.png'
-import clubs from '../../img/clubs.png'
-import diamonds from '../../img/diamonds.png'
-import BasicScoreView from '../basicscore/BasicscoreView'
+import './doppelkopf.css';
+import spades from '../../img/spades.png';
+import hearts from '../../img/hearts.png';
+import clubs from '../../img/clubs.png';
+import diamonds from '../../img/diamonds.png';
+import BasicScoreView from '../basicscore/BasicscoreView';
 
 class DoppelkopfView extends React.Component {
   constructor(props) {
