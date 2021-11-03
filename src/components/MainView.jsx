@@ -7,6 +7,7 @@ import KabooView from './kaboo/KabooView'
 import DoppelkopfView from './doppelkopf/DoppelkopfView'
 import NameInputView from './nameinput/NameInputView'
 import WizardView from './wizard/WizardView'
+import PresidentView from './president/PresidentView';
 
 class MainView extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class MainView extends React.Component {
       gameType: 'basic',
       players: [],
       duplicateName: 0,
-      showDelete: false
+      showDelete: false,
+      presidentShowDetails: false
     };
   }
 
@@ -142,6 +144,8 @@ class MainView extends React.Component {
       gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
     } else if (gameType === 'kaboo') {
       gameScreen = <> { gameControls } <KabooView /></>
+    } else if (gameType === 'president') {
+      gameScreen = <PresidentView />
     } else if (gameType === 'wizard') {
       gameScreen = <WizardView />
     } else {
