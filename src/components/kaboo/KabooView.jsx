@@ -37,10 +37,10 @@ const KabooView = () => {
         <div className="kaboo-action-box">
           <h2 className="kaboo-table-headings">Card Actions</h2>
           <ul className="kaboo-card-actions">
-            <li>7/8 - Look at one of your own cards</li>
-            <li>9/10 - Look at one of someone else's cards</li>
-            <li>J/Q - Blindly swap one of your own cards with somebody else's card</li>
-            <li>K - Look at one of someone else's card and decide if you want to swap with one of your own or not</li>
+            <li>7/8 - Look at your own card</li>
+            <li>9/10 - Look at another player's card</li>
+            <li>J/Q - Swap your own card with another players card</li>
+            <li>K - Look at another player's card and decide if you want to swap or not</li>
           </ul>              
         </div>
       </div>

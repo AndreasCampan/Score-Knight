@@ -51,13 +51,16 @@
   line-height: 1.3em;
 }
 
+.kaboo-action-box > ul {
+  padding: 0 0 0 30px;
+}
 .kaboo-card-actions li {
   margin: 5px 0;
-  padding-left: 10px;
+  padding: 0 10px 0 3px;
 }
 
 @media all and (max-width: 800px) {
-  .-kaboo-game-details-box {
+  .kaboo-game-details-box {
     display: flex;
     flex-direction: column;
     align-items: center;

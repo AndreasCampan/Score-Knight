@@ -145,7 +145,7 @@ class MainView extends React.Component {
     } else if (gameType === 'doppelkopf') {
       gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
     } else if (gameType === 'kaboo') {
-      gameScreen = <> { gameControls } <KabooView /></>
+      gameScreen = <> { gameControls } <KabooView /><BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/></>
     } else if (gameType === 'president') {
       gameScreen = <PresidentView />
     } else if (gameType === 'wizard') {
