@@ -152,14 +152,13 @@ class DoppelkopfView extends React.Component {
     }
   
     return(
-      <div className="dop-container">
+      <>
         <h1>Doppelkopf</h1>
-        <p style={{ color: 'red', margin: 0}}>Under Construction</p>
         <button className="rules-bttn-tog" onClick={()=>{this.toggleHide()}}>Game Details</button>
         { gameDetails }
         <BasicScoreView players={this.props.players} updateScore={this.props.updateScore} showDelete={this.props.showDelete} delPlayer={this.props.delPlayer}/>
 
-      </div>
+      </>
     )
   }
 }

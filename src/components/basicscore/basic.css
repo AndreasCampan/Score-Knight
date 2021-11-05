@@ -87,8 +87,8 @@
 .del-container {
   display: inline-block;
   position: relative;
-  top: -80px;
-  left: 70px;
+  top: -60%;
+  left: 38%;
   width: 0px;
   height: 0px;
   margin: 0;
@@ -198,7 +198,7 @@
 
   .player-card {
     font-size: 1.3em;
-    width: 250px;
+    width: 300px;
   }
 
   .bttn-container {
