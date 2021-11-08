@@ -23,6 +23,7 @@ class MainView extends React.Component {
     };
   }
 
+  //Validates the name input. If the name is invalid, an error message will appear. If the name is valid, the function will create and push that player into the state.
   addPlayer = (name) => {
     let players = this.state.players
     if (name === '') {
@@ -46,6 +47,7 @@ class MainView extends React.Component {
     } 
   }
 
+  //Runs when a player adjusts their round score. It's a temporary value holder so player can see their respective round score before adding it to their total using the updateScore() function.
   updateTempScore = (name, value) => {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
     let playersCopy = [...this.state.players];
@@ -56,6 +58,7 @@ class MainView extends React.Component {
     this.setState({ players: playersCopy})
   }
 
+  //Adds a players round score to their total score and changes their temporary score back to 0.
   updateScore = (name, value) => {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
     let playersCopy = [...this.state.players];
@@ -66,6 +69,7 @@ class MainView extends React.Component {
     this.setState({ players: playersCopy})
   }
 
+  //Deletes a player from the state remvoing all their data
   delPlayer = (name) => {
     let playersCopy = [...this.state.players];
     let playersCopy2 = playersCopy.filter(person => person.name !== name);
@@ -75,16 +79,19 @@ class MainView extends React.Component {
     });
   }
 
+  //Removes the error message from the name input validation check
   changeDuplicate = () =>  {
     this.setState({duplicateName: 0})
   }
 
+  //Changes the state variable gameType based on the Select Game drop down menu
   handleSelect = (e) => {
     this.setState({
       gameType: e.target.value
     })
   }
 
+  //Resets the game and removes all players and their data
   resetGame = () => {
     if(window.confirm('Are you sure you want to erase all game data?')){
       this.setState({
@@ -95,7 +102,8 @@ class MainView extends React.Component {
     }
     
   }
-
+  
+  //Resets the score leaving the players names but erasing their scores
   resetScore = () => {
     let playersCopy2 = [...this.state.players];
 
@@ -114,6 +122,7 @@ class MainView extends React.Component {
     
   }
 
+  //A function to toggle the delete player overlay
   showDeletePlayer = () => {
     this.setState(prevState => ({
       showDelete: !prevState.showDelete
@@ -125,12 +134,14 @@ class MainView extends React.Component {
     let gameScreen;
     let delActive;
 
+    //Changes the styling if the delete player is toggled.
     if(this.state.showDelete === true) {
       delActive = { 'backgroundColor': 'red'}
     } else {
       delActive = {}
     }
 
+    
     let gameControls = <> 
       <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
       <div className="bttn-controls-box">
