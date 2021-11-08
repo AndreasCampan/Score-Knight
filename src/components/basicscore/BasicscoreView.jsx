@@ -13,6 +13,12 @@ class BasicScoreView extends React.Component {
   }
 
   render() {
+    //Allows for dynamic button values to enable component reusability
+    let smallPos = this.props.smallPos;
+    let smallNeg = this.props.smallNeg;    
+    let mediumPos = this.props.mediumPos;
+    let mediumNeg = this.props.mediumNeg;
+
     let showDelete = this.props.showDelete;
     let delBox;
     let cardStyle
@@ -40,10 +46,22 @@ class BasicScoreView extends React.Component {
         <button onClick={()=>{this.addTempScore(data.name, data.tempScore)}} >Add to Total</button>
         { delBox }
         <div className="bttn-container">
-          <button style={ cardStyle } className="basic-bttn-minus up" onClick={()=>{this.props.updateTempScore(data.name, -5)}}>-5</button>
-          <button style={ cardStyle } className="basic-bttn-minus down" onClick={()=>{this.props.updateTempScore(data.name, -1)}}>-1</button>
-          <button style={ cardStyle } className="basic-bttn-plus down" onClick={()=>{this.props.updateTempScore(data.name, 1)}}>+1</button>
-          <button style={ cardStyle } className="basic-bttn-plus up" onClick={()=>{this.props.updateTempScore(data.name, 5)}}>+5</button>
+          
+          <button style={ cardStyle } className="basic-bttn-minus up" onClick={() => {this.props.updateTempScore(data.name, mediumNeg)}}>
+            {mediumNeg}
+          </button>
+
+          <button style={ cardStyle } className="basic-bttn-minus down" onClick={() => {this.props.updateTempScore(data.name, smallNeg)}}>
+            {smallNeg}
+          </button>
+
+          <button style={ cardStyle } className="basic-bttn-plus down" onClick={() => {this.props.updateTempScore(data.name, smallPos)}}>
+            {smallPos}
+          </button>
+
+          <button style={ cardStyle } className="basic-bttn-plus up" onClick={ () => {this.props.updateTempScore(data.name, mediumPos)}}>
+            {mediumPos}
+          </button>
         </div>
       </li>
       )
