@@ -100,7 +100,6 @@ class MainView extends React.Component {
     } else {
       return
     }
-    
   }
   
   //Resets the score leaving the players names but erasing their scores
@@ -119,7 +118,6 @@ class MainView extends React.Component {
     } else {
       return
     }
-    
   }
 
   //A function to toggle the delete player overlay
