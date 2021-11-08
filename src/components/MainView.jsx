@@ -151,18 +151,26 @@ class MainView extends React.Component {
       </div>
     </>
 
-    if (gameType === 'basic') {
-      gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
-    } else if (gameType === 'doppelkopf') {
-      gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
-    } else if (gameType === 'kaboo') {
-      gameScreen = <> { gameControls } <KabooView /><BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/></>
-    } else if (gameType === 'president') {
-      gameScreen = <PresidentView />
-    } else if (gameType === 'wizard') {
-      gameScreen = <WizardView />
-    } else {
-      gameScreen =  <> { gameControls } <div><p>Coming Soon!!</p></div> </>
+    //Renders the scorekeeper based on which game is selected in the "Select Game" drop down menu
+    switch (gameType) {
+      case 'basic':
+        gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
+      break;
+      case 'doppelkopf':
+        gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
+      break;
+      case 'kaboo':
+        gameScreen = <> { gameControls } <KabooView /><BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/></>
+      break;
+      case 'president':
+        gameScreen = <PresidentView />
+      break;
+      case 'wizard':
+        gameScreen = <WizardView />
+      break;
+      default:
+        gameScreen =  <> { gameControls } <div><p>Coming Soon!!</p></div> </>
+      break;
     }
 
     return (
