@@ -8,6 +8,7 @@ import DoppelkopfView from './doppelkopf/DoppelkopfView'
 import NameInputView from './nameinput/NameInputView'
 import WizardView from './wizard/WizardView'
 import PresidentView from './president/PresidentView';
+import update from 'immutability-helper';
 
 class MainView extends React.Component {
   constructor(props) {
@@ -47,15 +48,14 @@ class MainView extends React.Component {
     } 
   }
 
-  //Runs when a player adjusts their round score. It's a temporary value holder so player can see their respective round score before adding it to their total using the updateScore() function.
+  //Runs when a player adjusts their round score, a temporary value displayed so players can see their respective round scores, before adding it to their total score via the "add to total" button.
   updateTempScore = (name, value) => {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
-    let playersCopy = [...this.state.players];
     let playerOldScore = this.state.players[elementsIndex].tempScore
+    let total = playerOldScore + value;
 
-    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], tempScore: value + playerOldScore }
-    
-    this.setState({ players: playersCopy})
+    let newTempScore = update(this.state.players, {[elementsIndex]: {tempScore: {$set: total }}});
+    this.setState({players: newTempScore});
   }
 
   //Adds a players round score to their total score and changes their temporary score back to 0.
