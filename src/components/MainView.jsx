@@ -39,9 +39,9 @@ class MainView extends React.Component {
       if (this.state.players.length === 0) {
         this.setState({players: [{id: name, name: name, tempScore: 0, score: 0}]});
       } else {
-        let namesArray = this.state.players
+        let namesArray = [...this.state.players]
         namesArray.push({id: name, name: name, tempScore: 0, score: 0})
-        this.setState({players: namesArray})
+        this.setState({players: namesArray});
       }
       this.setState({ duplicateName: 0});
     } 
@@ -106,7 +106,7 @@ class MainView extends React.Component {
   //Resets the score leaving the players names but erasing their scores
   resetScore = () => {
     let playersCopy2 = [...this.state.players];
-
+    
     let formattedArray = playersCopy2.map((element) => {
       let array = {"id": element.name, "name": element.name, "tempScore": 0, "score": 0}
       return array
