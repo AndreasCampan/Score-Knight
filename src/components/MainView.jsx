@@ -20,7 +20,6 @@ class MainView extends React.Component {
       showDelete: false,
       kabooShowDetails: false,
       presidentShowDetails: false
-      
     };
   }
 
@@ -51,23 +50,25 @@ class MainView extends React.Component {
   //Runs when a player adjusts their round score, a temporary value displayed so players can see their respective round scores, before adding it to their total score via the "add to total" button.
   updateTempScore = (name, value) => {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
-    let playerOldScore = this.state.players[elementsIndex].tempScore
-    let total = playerOldScore + value;
+    const playerOldScore = this.state.players[elementsIndex].tempScore
+    const tempTotal = playerOldScore + value;
 
-    let newTempScore = update(this.state.players, {[elementsIndex]: {tempScore: {$set: total }}});
+    const newTempScore = update(this.state.players, {[elementsIndex]: {tempScore: {$set: tempTotal }}});
     this.setState({players: newTempScore});
   }
 
   //Adds a players round score to their total score and changes their temporary score back to 0.
   updateScore = (name, value) => {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
-    let playersCopy = [...this.state.players];
-    let playerOldScore = this.state.players[elementsIndex].score
-
-    playersCopy[elementsIndex] = {...playersCopy[elementsIndex], score: value + playerOldScore, tempScore: 0 }
+    const playerOldScore = this.state.players[elementsIndex].score
+    const scoreTotal = playerOldScore + value;
     
-    this.setState({ players: playersCopy})
+    const newScore = update(this.state.players, {
+      [elementsIndex]: { score: {$set: scoreTotal }, tempScore: {$set: 0 } }
+    });
+    this.setState({ players: newScore})
   }
+
 
   //Deletes a player from the state remvoing all their data
   delPlayer = (name) => {
