@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Score-Knight/static/css/main.2ab1c2e4.chunk.css",
-    "main.js": "/Score-Knight/static/js/main.27959a4e.chunk.js",
-    "main.js.map": "/Score-Knight/static/js/main.27959a4e.chunk.js.map",
-    "runtime-main.js": "/Score-Knight/static/js/runtime-main.263584ab.js",
-    "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.263584ab.js.map",
-    "static/js/2.2a2a8c67.chunk.js": "/Score-Knight/static/js/2.2a2a8c67.chunk.js",
-    "static/js/2.2a2a8c67.chunk.js.map": "/Score-Knight/static/js/2.2a2a8c67.chunk.js.map",
-    "static/js/3.a3f95598.chunk.js": "/Score-Knight/static/js/3.a3f95598.chunk.js",
-    "static/js/3.a3f95598.chunk.js.map": "/Score-Knight/static/js/3.a3f95598.chunk.js.map",
+    "main.css": "/Score-Knight/static/css/main.fc08ea91.chunk.css",
+    "main.js": "/Score-Knight/static/js/main.d0726cd9.chunk.js",
+    "main.js.map": "/Score-Knight/static/js/main.d0726cd9.chunk.js.map",
+    "runtime-main.js": "/Score-Knight/static/js/runtime-main.ce6bd593.js",
+    "runtime-main.js.map": "/Score-Knight/static/js/runtime-main.ce6bd593.js.map",
+    "static/js/2.53b8150a.chunk.js": "/Score-Knight/static/js/2.53b8150a.chunk.js",
+    "static/js/2.53b8150a.chunk.js.map": "/Score-Knight/static/js/2.53b8150a.chunk.js.map",
+    "static/js/3.e3b6a1e3.chunk.js": "/Score-Knight/static/js/3.e3b6a1e3.chunk.js",
+    "static/js/3.e3b6a1e3.chunk.js.map": "/Score-Knight/static/js/3.e3b6a1e3.chunk.js.map",
     "index.html": "/Score-Knight/index.html",
     "service-worker.js": "/Score-Knight/service-worker.js",
     "service-worker.js.map": "/Score-Knight/service-worker.js.map",
-    "static/css/main.2ab1c2e4.chunk.css.map": "/Score-Knight/static/css/main.2ab1c2e4.chunk.css.map",
-    "static/js/2.2a2a8c67.chunk.js.LICENSE.txt": "/Score-Knight/static/js/2.2a2a8c67.chunk.js.LICENSE.txt",
+    "static/css/main.fc08ea91.chunk.css.map": "/Score-Knight/static/css/main.fc08ea91.chunk.css.map",
+    "static/js/2.53b8150a.chunk.js.LICENSE.txt": "/Score-Knight/static/js/2.53b8150a.chunk.js.LICENSE.txt",
     "static/media/github-footer.e21209f2.svg": "/Score-Knight/static/media/github-footer.e21209f2.svg",
-    "static/media/sk-logo.438c49c3.svg": "/Score-Knight/static/media/sk-logo.438c49c3.svg",
-    "static/media/twitter-footer.642a257c.svg": "/Score-Knight/static/media/twitter-footer.642a257c.svg"
+    "static/media/sk-logo.cba04f24.svg": "/Score-Knight/static/media/sk-logo.cba04f24.svg",
+    "static/media/twitter-footer.ef7fa16c.svg": "/Score-Knight/static/media/twitter-footer.ef7fa16c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.263584ab.js",
-    "static/js/2.2a2a8c67.chunk.js",
-    "static/css/main.2ab1c2e4.chunk.css",
-    "static/js/main.27959a4e.chunk.js"
+    "static/js/runtime-main.ce6bd593.js",
+    "static/js/2.53b8150a.chunk.js",
+    "static/css/main.fc08ea91.chunk.css",
+    "static/js/main.d0726cd9.chunk.js"
   ]
 }
