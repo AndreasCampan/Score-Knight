@@ -140,7 +140,6 @@ class MainView extends React.Component {
       delActive = {}
     }
 
-    
     let gameControls = <> 
       <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
       <div className="bttn-controls-box">
@@ -153,13 +152,13 @@ class MainView extends React.Component {
     //Renders the scorekeeper based on which game is selected in the "Select Game" drop down menu
     switch (gameType) {
       case 'basic':
-        gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
+        gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} smallPos={1} smallNeg={-1} mediumPos={5} mediumNeg={-5}/> </>
       break;
       case 'doppelkopf':
-        gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
+        gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
       break;
       case 'kaboo':
-        gameScreen = <> { gameControls } <KabooView /><BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/></>
+        gameScreen = <> { gameControls } <KabooView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
       break;
       case 'president':
         gameScreen = <PresidentView />

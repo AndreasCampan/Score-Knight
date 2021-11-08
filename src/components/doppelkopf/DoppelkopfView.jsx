@@ -156,7 +156,7 @@ class DoppelkopfView extends React.Component {
         <h1>Doppelkopf</h1>
         <button className="rules-bttn-tog" onClick={()=>{this.toggleHide()}}>Game Details</button>
         { gameDetails }
-        <BasicScoreView players={this.props.players} updateScore={this.props.updateScore} showDelete={this.props.showDelete} delPlayer={this.props.delPlayer}/>
+        <BasicScoreView players={this.props.players} updateScore={this.props.updateScore} updateTempScore={this.props.updateTempScore} showDelete={this.props.showDelete} delPlayer={this.props.delPlayer} smallPos={1} smallNeg={-1} mediumPos={5} mediumNeg={-5}/>
 
       </>
     )
