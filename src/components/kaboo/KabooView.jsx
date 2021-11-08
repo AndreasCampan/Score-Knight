@@ -4,9 +4,9 @@ import spades from '../../img/spades.png';
 import hearts from '../../img/hearts.png';
 import clubs from '../../img/clubs.png';
 import diamonds from '../../img/diamonds.png';
+import BasicScoreView from '../basicscore/BasicscoreView';
 
-
-const KabooView = () => {
+const KabooView = (props) => {
   const [kabooShowDetails, setKabooShowDetails] = useState(false);
   let gameDetails;
 
@@ -54,6 +54,7 @@ const KabooView = () => {
       <h1>Kaboo (Cabo)</h1>
       <button className="rules-bttn-tog" onClick={()=>{setKabooShowDetails(prevCheck => !prevCheck)}}>Game Details</button>
       { gameDetails }
+      <BasicScoreView players={props.players} updateScore={props.updateScore} updateTempScore={props.updateTempScore} showDelete={props.showDelete} delPlayer={props.delPlayer} smallPos={1} smallNeg={-1} mediumPos={5} mediumNeg={-5}/>
     </>
   )
 }
