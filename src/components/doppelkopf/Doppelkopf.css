@@ -1,16 +1,16 @@
 
 .table-headings {
-  margin: 0 0 5px;
-  padding: 0;
+  padding: 5px 0;
   font-size: 1em;
+  font-weight: 700;
   color: rgb(0, 65, 6);
-  text-decoration: underline;
+  text-decoration:underline;
   text-align: center;
 }
 
 .game-details-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -18,10 +18,10 @@
 }
 
 .trump-box, .value-box {
-  width: 300px;
+  width: 320px;
   border: 2px solid rgb(0, 65, 6);
   text-align: left;
-  padding: 5px; 
+  padding: 5px 0 10px 10px; 
   border-radius: 8px;
   counter-reset: count;
   margin: 5px;
@@ -29,7 +29,7 @@
 }
 
 .point-box  {
-  width: 300px;
+  width: 320px;
   border: 2px solid rgb(0, 65, 6);
   text-align: left;
   padding: 5px; 
@@ -43,19 +43,29 @@ ol.DK-ol {
   padding-left: 20px;
 }
 
-th {
-  text-align: center;
+.symbol-box {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  justify-content:space-between;
+  align-items: center;
+  width: 38px;
+}
+
+.symbol-box2 {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  justify-content:space-between;
+  align-items: center;
+  width: 78px;
 }
 
 td + td {
-  display: flex;
-  align-content: center;
+  padding-left: 10px;
+  text-align: left;
   justify-content: right;
-}
-
-tbody > tr::before {
-  counter-increment: count;
-  content: counter(count) ".";
+  align-items: right;
 }
 
 .card-values {
@@ -69,6 +79,7 @@ tbody > tr::before {
   counter-reset: count; 
   align-items: center;
   justify-items: center;
+  padding: 5px ;
 }
 
 @media all and (max-width: 800px) {

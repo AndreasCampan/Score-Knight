@@ -1,5 +1,5 @@
 import React from 'react';
-import './doppelkopf.css';
+import './Doppelkopf.css';
 import spades from '../../img/spades.png';
 import hearts from '../../img/hearts.png';
 import clubs from '../../img/clubs.png';
@@ -24,7 +24,7 @@ class DoppelkopfView extends React.Component {
     let gameDetails;
 
     if (this.state.showDetails === true) {
-      gameDetails =  <div className="game-details-box">
+      gameDetails = <div className="game-details-box">
           <table className="trump-box">
             <thead>
               <tr>
@@ -33,93 +33,97 @@ class DoppelkopfView extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td>Ten of Hearts (Strongest Trump)</td>
-                <td>10 <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/> </td>
+                <td className='symbol-box'>10 <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/> </td>
+                <td>Ten of Hearts</td>
               </tr>
               <tr>
+                <td className='symbol-box'>Q <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Queen of Clubs (Elderly)</td>
-                <td>Q <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>Q <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Queen of Spades </td>
-                <td>Q <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>Q <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Queen of Hearts</td>
-                <td>Q <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>Q <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Queen of Diamonds</td>
-                <td>Q <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>J <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Jack of Clubs (Karlchen)</td>
-                <td>J <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>J <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Jack of Spades</td>
-                <td>J <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>J <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Jack of Hearts</td>
-                <td>J <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Jack of Diamonds</td>
-                <td>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>A <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Ace of Diamonds (Fox)</td>
-                <td>A <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>10 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>Ten of Diamonds</td>
-                <td>10 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
+                <td className='symbol-box'>K <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
                 <td>King of Diamonds</td>
-                <td>K <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
-                <td>Nine of Diamonds (Weakest Trump)</td>
-                <td>9 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
-              </tr>
-              <tr>
-                <td>Ace</td>
-                <td>
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
-                </td>
-              </tr>
-              <tr>
-                <td>Ten</td>
-                <td>
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
-                </td>
-              </tr>
-              <tr>
-                <td>King</td>
-                <td>
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
-                </td>
-              </tr>
-              <tr>
-                <td>Nine</td>
-                <td>
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
-                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
-                </td>
+                <td className='symbol-box'>9 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
+                <td>Nine of Diamonds</td>
               </tr>
             </tbody>
+              <tr>
+                <th colSpan="3" className="table-headings">Non-Trumps</th>
+              </tr>
+              <tr>
+                <td className='symbol-box2'>A
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                </td>
+                <td>Ace</td>
+              </tr>
+              <tr>
+               <td className='symbol-box2'>10
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                </td>
+                <td>Ten</td>
+              </tr>
+              <tr>
+                <td className='symbol-box2'>K
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                </td>
+                <td>King</td>
+              </tr>
+              <tr>
+                <td className='symbol-box2'>9
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                </td>
+                <td>Nine</td>
+              </tr>
           </table>
+
           <div className="value-box">
-            <h2 className="table-headings">Card Values</h2>
+            <div className="table-headings">Card Values</div>
             <div className="card-values">
               <p>Ace: 11</p>
               <p>Ten: 10</p>
@@ -130,7 +134,7 @@ class DoppelkopfView extends React.Component {
             </div>
           </div>
           <div className="point-box">
-            <h2 className="table-headings">Game Scoring</h2>
+            <div className="table-headings">Game Scoring</div>
             <ol className="DK-ol">
               <li>1 Point - for each score (120, 90, 60, 30, 0) not acquired by the opponents</li>
               <li>1 Point - for each no 120, 90, 60, 30, 0 called at the beginning of the game</li>
