@@ -13,10 +13,7 @@ class FooterView extends React.Component {
           <img src={aclogo} alt="Logo for Portfolio websites" className="footer-icons" />
         </a>
         <a href="https://github.com/AndreasCampan/Score-Knight" target="_blank" rel="noreferrer">
-          <img src={github} alt="Logo for Portfolio websites" className="footer-icons" />
-        </a>
-        <a href="https://twitter.com/AndreasCampan" target="_blank" rel="noreferrer">
-          <img src={twitter} alt="Logo for Portfolio websites" className="footer-icons" />
+          <img src={github} alt="Logo for github website" className="footer-icons" />
         </a>
       </div>
     )
