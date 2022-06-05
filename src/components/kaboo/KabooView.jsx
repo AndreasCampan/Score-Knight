@@ -18,7 +18,7 @@ const KabooView = (props) => {
             <p>
               <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
               <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
-              Black Kings: 13
+              Black King: 13
             </p>
             <p>Queen: 12</p>
             <p>Jack: 11</p>
@@ -29,7 +29,7 @@ const KabooView = (props) => {
             <p>
               <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
               <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/>
-              Red Kings: 13
+              Red King: 0
             </p>
             <p>Joker: -1</p>
           </div>
@@ -37,10 +37,10 @@ const KabooView = (props) => {
         <div className="kaboo-action-box">
           <h2 className="kaboo-table-headings">Card Actions</h2>
           <ul className="kaboo-card-actions">
-            <li>7/8 - Look at your own card</li>
-            <li>9/10 - Look at another player's card</li>
-            <li>J/Q - Swap your own card with another players card</li>
-            <li>K - Look at another player's card and decide if you want to swap or not</li>
+            <li><strong>7/8</strong> - Look at your <strong>own</strong> card</li>
+            <li><strong>9/10</strong> - Look at <strong>another</strong> player's card</li>
+            <li><strong>J/Q</strong>- Swap your own card with another players card</li>
+            <li><strong>K</strong> - Look at another player's card and decide if you want to swap or not</li>
           </ul>              
         </div>
       </div>
