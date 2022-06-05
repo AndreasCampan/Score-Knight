@@ -14,8 +14,7 @@ The motivation and inspiration behind this app was my pregnant wife who told me 
 
 **Instructions:**
 
-
-**Score Input**
+Clone the repo and using a terminal npm install the packages
 
 **Stack**
 -React
