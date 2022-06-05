@@ -137,12 +137,11 @@ class DoppelkopfView extends React.Component {
             <div className="table-headings">Game Scoring</div>
             <ol className="DK-ol">
               <li>1 Point - for each score (120, 90, 60, 30, 0) not acquired by the opponents</li>
-              <li>1 Point - for each no 120, 90, 60, 30, 0 called at the beginning of the game</li>
-              <li>Re/Contra - double the points</li>
+              <li> 1 Point - Ray/Contra-Ray called at the beginning of the game</li>
               <li>1 Point - for each of the following:</li>
               <ul>
-                <li>Karlchen: Last pot with 'Jack of Clubs"</li>
-                <li>Doppelkopf: Pot with more than 40 points</li>
+                <li>Karlchen: Win last trick with the Jack of Clubs</li>
+                <li>Doppelkopf: Win trick with more than 40 points</li>
                 <li>Solo: Queen, Jack, Suit, Marriage</li>
                 <li>Fox: Ace of diamonds caught by opponents</li>
                 <li>Elderly: Won against the Queens</li>
