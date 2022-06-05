@@ -2,7 +2,6 @@ import React from 'react';
 import './footer.css'
 import aclogo from '../../img/aclogo-footer.png'
 import github from '../../img/github-footer.svg'
-import twitter from '../../img/twitter-footer.svg'
 
 class FooterView extends React.Component {
 
