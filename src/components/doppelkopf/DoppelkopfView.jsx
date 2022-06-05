@@ -70,19 +70,19 @@ class DoppelkopfView extends React.Component {
               </tr>
               <tr>
                 <td>Ace of Diamonds (Fox)</td>
-                <td>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
+                <td>A <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
                 <td>Ten of Diamonds</td>
-                <td>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
+                <td>10 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
                 <td>King of Diamonds</td>
-                <td>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
+                <td>K <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
                 <td>Nine of Diamonds (Weakest Trump)</td>
-                <td>J <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
+                <td>9 <img src={ diamonds } className="suite-symbols" alt="Spades suite symbol"/></td>
               </tr>
               <tr>
                 <td>Ace</td>
