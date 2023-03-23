@@ -13,7 +13,7 @@ import update from 'immutability-helper';
 class MainView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = JSON.parse(localStorage.getItem('gameData')) || {
       gameType: 'basic',
       players: [],
       duplicateName: 0,
@@ -23,28 +23,34 @@ class MainView extends React.Component {
     };
   }
 
+  addLocalStorage = () => {
+    const serializedState = JSON.stringify(this.state);
+    localStorage.setItem('gameData', serializedState)
+  }
+
+
   //Validates the name input. If the name is invalid, an error message will appear. If the name is valid, the function will create and push that player into the state.
   addPlayer = (name) => {
     let players = this.state.players
     if (name === '') {
-      this.setState({ duplicateName: 1})
+      this.setState({ duplicateName: 1 })
       return
     } else if (players.some(players => players.name === name)) {
-      this.setState({ duplicateName: 2});
+      this.setState({ duplicateName: 2 });
       return
-    } else if (name.length > 12) {
-      this.setState({ duplicateName: 3});
+    } else if (name.length > 14) {
+      this.setState({ duplicateName: 3 });
       return
     } else {
       if (this.state.players.length === 0) {
-        this.setState({players: [{id: name, name: name, tempScore: 0, score: 0}]});
+        this.setState({ players: [{ id: name, name: name, tempScore: 0, score: 0 }] }, () => { this.addLocalStorage() });
       } else {
         let namesArray = [...this.state.players]
-        namesArray.push({id: name, name: name, tempScore: 0, score: 0})
-        this.setState({players: namesArray});
+        namesArray.push({ id: name, name: name, tempScore: 0, score: 0 })
+        this.setState({ players: namesArray }, () => { this.addLocalStorage() });
       }
-      this.setState({ duplicateName: 0});
-    } 
+      this.setState({ duplicateName: 0 });
+    }
   }
 
   //Runs when a player adjusts their round score, a temporary value displayed so players can see their respective round scores, before adding it to their total score via the "add to total" button.
@@ -53,8 +59,8 @@ class MainView extends React.Component {
     const playerOldScore = this.state.players[elementsIndex].tempScore
     const tempTotal = playerOldScore + value;
 
-    const newTempScore = update(this.state.players, {[elementsIndex]: {tempScore: {$set: tempTotal }}});
-    this.setState({players: newTempScore});
+    const newTempScore = update(this.state.players, { [elementsIndex]: { tempScore: { $set: tempTotal } } });
+    this.setState({ players: newTempScore });
   }
 
   //Adds a players round score to their total score and changes their temporary score back to 0.
@@ -62,11 +68,11 @@ class MainView extends React.Component {
     const elementsIndex = this.state.players.findIndex(el => el.id === name);
     const playerOldScore = this.state.players[elementsIndex].score
     const scoreTotal = playerOldScore + value;
-    
+
     const newScore = update(this.state.players, {
-      [elementsIndex]: { score: {$set: scoreTotal }, tempScore: {$set: 0 } }
+      [elementsIndex]: { score: { $set: scoreTotal }, tempScore: { $set: 0 } }
     });
-    this.setState({ players: newScore})
+    this.setState({ players: newScore }, () => { this.addLocalStorage() })
   }
 
 
@@ -75,47 +81,35 @@ class MainView extends React.Component {
     let playersCopy = [...this.state.players];
     let playersCopy2 = playersCopy.filter(person => person.name !== name);
 
-    this.setState({
-      players: playersCopy2
-    });
+    this.setState({ players: playersCopy2 }, () => { this.addLocalStorage() });
   }
 
   //Removes the error message from the name input validation check
-  changeDuplicate = () =>  {
-    this.setState({duplicateName: 0})
-  }
+  changeDuplicate = () => { this.setState({ duplicateName: 0 }) }
 
   //Changes the state variable gameType based on the Select Game drop down menu
-  handleSelect = (e) => {
-    this.setState({
-      gameType: e.target.value
-    })
-  }
+  handleSelect = (e) => { this.setState({ gameType: e.target.value }, () => { this.addLocalStorage() }) }
 
   //Resets the game and removes all players and their data
   resetGame = () => {
-    if(window.confirm('Are you sure you want to erase all game data?')){
-      this.setState({
-        players: []
-      });
+    if (window.confirm('Are you sure you want to erase all game data?')) {
+      this.setState({ players: [] }, () => { this.addLocalStorage() });
     } else {
       return
     }
   }
-  
+
   //Resets the score leaving the players names but erasing their scores
   resetScore = () => {
     let playersCopy2 = [...this.state.players];
-    
+
     let formattedArray = playersCopy2.map((element) => {
-      let array = {"id": element.name, "name": element.name, "tempScore": 0, "score": 0}
+      let array = { "id": element.name, "name": element.name, "tempScore": 0, "score": 0 }
       return array
     })
 
-    if(window.confirm("Are you sure you want to reset every player's score?")){
-      this.setState({
-        players: formattedArray
-      });
+    if (window.confirm("Are you sure you want to reset every player's score?")) {
+      this.setState({ players: formattedArray}, () => { this.addLocalStorage() });
     } else {
       return
     }
@@ -128,54 +122,54 @@ class MainView extends React.Component {
     }))
   }
 
-  render(){
+  render() {
     let { gameType } = this.state;
     let gameScreen;
     let delActive;
 
     //Changes the styling if the delete player is toggled.
-    if(this.state.showDelete === true) {
-      delActive = { 'backgroundColor': 'red'}
+    if (this.state.showDelete === true) {
+      delActive = { 'backgroundColor': 'red' }
     } else {
       delActive = {}
     }
 
-    let gameControls = <> 
-      <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName}/>
+    let gameControls = <>
+      <NameInputView addPlayer={this.addPlayer} changeDuplicate={this.changeDuplicate} duplicateName={this.state.duplicateName} />
       <div className="bttn-controls-box">
-        <button onClick={() => {this.resetGame()}}>Reset Game</button>
-        <button onClick={() => {this.resetScore()}}>Reset Score</button>
-        <button style={ delActive } onClick={() => {this.showDeletePlayer()}}>Edit Players</button>
+        <button onClick={() => { this.resetGame() }}>Reset Game</button>
+        <button onClick={() => { this.resetScore() }}>Reset Score</button>
+        <button style={delActive} onClick={() => { this.showDeletePlayer() }}>Edit Players</button>
       </div>
     </>
 
     //Renders the scorekeeper based on which game is selected in the "Select Game" drop down menu
     switch (gameType) {
       case 'basic':
-        gameScreen = <> { gameControls } <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} smallPos={1} smallNeg={-1} mediumPos={5} mediumNeg={-5}/> </>
-      break;
+        gameScreen = <> {gameControls} <BasicScoreView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} smallPos={1} smallNeg={-1} mediumPos={5} mediumNeg={-5} /> </>
+        break;
       case 'doppelkopf':
-        gameScreen = <> { gameControls } <DoppelkopfView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
-      break;
+        gameScreen = <> {gameControls} <DoppelkopfView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
+        break;
       case 'kaboo':
-        gameScreen = <> { gameControls } <KabooView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer}/> </>
-      break;
+        gameScreen = <> {gameControls} <KabooView players={this.state.players} updateScore={this.updateScore} updateTempScore={this.updateTempScore} showDelete={this.state.showDelete} delPlayer={this.delPlayer} /> </>
+        break;
       case 'president':
         gameScreen = <PresidentView />
-      break;
+        break;
       case 'wizard':
         gameScreen = <WizardView />
-      break;
+        break;
       default:
-        gameScreen =  <> { gameControls } <div><p>Coming Soon!!</p></div> </>
-      break;
+        gameScreen = <> {gameControls} <div><p>Coming Soon!!</p></div> </>
+        break;
     }
 
     return (
       <>
         <NavView />
         <div className="app-container">
-          <div className="gameselect-box">            
+          <div className="gameselect-box">
             <h2 className="title-1">Select a Game:</h2>
             <select name="games" id="games" value={this.state.gameType} onChange={this.handleSelect}>
               <option value="basic">Basic Score Keeper</option>
@@ -186,7 +180,7 @@ class MainView extends React.Component {
               <option value="wizard">Wizard</option>
             </select>
           </div>
-          { gameScreen }
+          {gameScreen}
         </div>
         <FooterView />
       </>
