@@ -13,9 +13,9 @@ import update from 'immutability-helper';
 class MainView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = JSON.parse(localStorage.getItem('gameData')) || {
-      gameType: 'basic',
-      players: [],
+    this.state =  {
+      gameType: JSON.parse(localStorage.getItem('gameType')) || 'basic',
+      players: JSON.parse(localStorage.getItem('players')) || [],
       duplicateName: 0,
       showDelete: false,
       kabooShowDetails: false,
@@ -23,9 +23,9 @@ class MainView extends React.Component {
     };
   }
 
-  addLocalStorage = () => {
-    const serializedState = JSON.stringify(this.state);
-    localStorage.setItem('gameData', serializedState)
+  addLocalStorage = (key, data) => {
+    const serializedState = JSON.stringify(data);
+    localStorage.setItem(key, serializedState)
   }
 
 
@@ -43,11 +43,11 @@ class MainView extends React.Component {
       return
     } else {
       if (this.state.players.length === 0) {
-        this.setState({ players: [{ id: name, name: name, tempScore: 0, score: 0 }] }, () => { this.addLocalStorage() });
+        this.setState({ players: [{ id: name, name: name, tempScore: 0, score: 0 }] }, () => { this.addLocalStorage('players', this.state.players) });
       } else {
         let namesArray = [...this.state.players]
         namesArray.push({ id: name, name: name, tempScore: 0, score: 0 })
-        this.setState({ players: namesArray }, () => { this.addLocalStorage() });
+        this.setState({ players: namesArray }, () => { this.addLocalStorage('players', this.state.players) });
       }
       this.setState({ duplicateName: 0 });
     }
@@ -72,7 +72,7 @@ class MainView extends React.Component {
     const newScore = update(this.state.players, {
       [elementsIndex]: { score: { $set: scoreTotal }, tempScore: { $set: 0 } }
     });
-    this.setState({ players: newScore }, () => { this.addLocalStorage() })
+    this.setState({ players: newScore }, () => { this.addLocalStorage('players', this.state.players) })
   }
 
 
@@ -81,19 +81,19 @@ class MainView extends React.Component {
     let playersCopy = [...this.state.players];
     let playersCopy2 = playersCopy.filter(person => person.name !== name);
 
-    this.setState({ players: playersCopy2 }, () => { this.addLocalStorage() });
+    this.setState({ players: playersCopy2 }, () => { this.addLocalStorage('players', this.state.players) });
   }
 
   //Removes the error message from the name input validation check
   changeDuplicate = () => { this.setState({ duplicateName: 0 }) }
 
   //Changes the state variable gameType based on the Select Game drop down menu
-  handleSelect = (e) => { this.setState({ gameType: e.target.value }, () => { this.addLocalStorage() }) }
+  handleSelect = (e) => { this.setState({ gameType: e.target.value }, () => { this.addLocalStorage('gameType', this.state.gameType) }) }
 
   //Resets the game and removes all players and their data
   resetGame = () => {
     if (window.confirm('Are you sure you want to erase all game data?')) {
-      this.setState({ players: [] }, () => { this.addLocalStorage() });
+      this.setState({ players: [] }, () => { this.addLocalStorage('players', this.state.players) });
     } else {
       return
     }
@@ -109,7 +109,7 @@ class MainView extends React.Component {
     })
 
     if (window.confirm("Are you sure you want to reset every player's score?")) {
-      this.setState({ players: formattedArray}, () => { this.addLocalStorage() });
+      this.setState({ players: formattedArray}, () => { this.addLocalStorage('players', this.state.players) });
     } else {
       return
     }
