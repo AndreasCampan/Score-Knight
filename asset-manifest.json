@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Score-Knight/static/css/main.5aba4446.css",
-    "main.js": "/Score-Knight/static/js/main.7dc4a693.js",
+    "main.css": "/Score-Knight/static/css/main.1e8cd965.css",
+    "main.js": "/Score-Knight/static/js/main.5befdf91.js",
     "static/js/787.78c16ad1.chunk.js": "/Score-Knight/static/js/787.78c16ad1.chunk.js",
     "static/media/sk-logo.svg": "/Score-Knight/static/media/sk-logo.cba04f241eb514becbbdb8101a60edab.svg",
     "service-worker.js": "/Score-Knight/service-worker.js",
     "static/media/github-footer.svg": "/Score-Knight/static/media/github-footer.e21209f267368a1bd7975dab65fcd209.svg",
     "index.html": "/Score-Knight/index.html",
-    "main.5aba4446.css.map": "/Score-Knight/static/css/main.5aba4446.css.map",
-    "main.7dc4a693.js.map": "/Score-Knight/static/js/main.7dc4a693.js.map",
+    "main.1e8cd965.css.map": "/Score-Knight/static/css/main.1e8cd965.css.map",
+    "main.5befdf91.js.map": "/Score-Knight/static/js/main.5befdf91.js.map",
     "787.78c16ad1.chunk.js.map": "/Score-Knight/static/js/787.78c16ad1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5aba4446.css",
-    "static/js/main.7dc4a693.js"
+    "static/css/main.1e8cd965.css",
+    "static/js/main.5befdf91.js"
   ]
 }
