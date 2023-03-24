@@ -46,7 +46,6 @@ ol.DK-ol {
 .symbol-box {
   display: flex;
   flex-direction: row;
-  text-align: right;
   justify-content:space-between;
   align-items: center;
   width: 38px;
@@ -55,10 +54,21 @@ ol.DK-ol {
 .symbol-box2 {
   display: flex;
   flex-direction: row;
-  text-align: right;
   justify-content:space-between;
   align-items: center;
   width: 78px;
+}
+
+.symbol-box3 {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  width: 58px;
+}
+
+.symbol-margin {
+  width: 16px
 }
 
 td + td {

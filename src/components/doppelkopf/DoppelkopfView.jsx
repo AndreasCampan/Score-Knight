@@ -89,34 +89,33 @@ class DoppelkopfView extends React.Component {
                 <th colSpan="3" className="table-headings">Non-Trumps</th>
               </tr>
               <tr>
-                <td className='symbol-box2'>A
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                <td className='symbol-box2'><span class='symbol-margin'>A</span>
                   <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
                   <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
                 </td>
                 <td>Ace</td>
               </tr>
               <tr>
-               <td className='symbol-box2'>10
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+               <td className='symbol-box3'><span class='symbol-margin'>10</span>
                   <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
                   <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
                 </td>
                 <td>Ten</td>
               </tr>
               <tr>
-                <td className='symbol-box2'>K
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                <td className='symbol-box2'><span class='symbol-margin'>K</span>
                   <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
                   <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
                 </td>
                 <td>King</td>
               </tr>
               <tr>
-                <td className='symbol-box2'>9
-                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
+                <td className='symbol-box2'><span class='symbol-margin'>9</span>
                   <img src={ clubs } className="suite-symbols" alt="Spades suite symbol"/>
                   <img src={ spades } className="suite-symbols" alt="Spades suite symbol"/>
+                  <img src={ hearts } className="suite-symbols" alt="Spades suite symbol"/>
                 </td>
                 <td>Nine</td>
               </tr>
